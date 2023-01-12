@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Namomo Winter Camp 2023 Day2</title>
+      <link href="/2023/01126581.html"/>
+      <url>/2023/01126581.html</url>
+      
+        <content type="html"><![CDATA[<p>分析了一下现状。</p><p>然后就开始讲题了。</p><h2 id="2022ICPC南京-A"><a href="#2022ICPC南京-A" class="headerlink" title="2022ICPC南京 A"></a>2022ICPC南京 A</h2><p>逆向思维+二维前缀和。</p><p>直接放题解。</p><p><img src="/2023/01126581/njatj1.png" alt></p><p><img src="/2023/01126581/njatj2.png" alt></p><p><img src="/2023/01126581/njatj3.png" alt></p><p>提到了高维前缀和不是一定要用容斥原理来实现的，还可以一维一维地实现。</p><p>实现代码的过程中踩了一个雷，使用了 <code>memset</code> ，导致了 TLE 。</p><p>究其原因，使用 <code>memset</code> 时间复杂度为 $O(Tnm)$ ，而直接 <code>for</code> 循环来初始化的复杂度为 $O(\sum nm)$ ，题目保证了 $\sum nm\le 10^6$ 。</p><p>这种逆向思维还是挺妙的。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> ACM </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 记录 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Namomo Winter Camp 2023 Day1</title>
       <link href="/2023/01116389.html"/>
       <url>/2023/01116389.html</url>
@@ -308,9 +333,9 @@
       
         <tags>
             
-            <tag> 思维 </tag>
-            
             <tag> 线段树 </tag>
+            
+            <tag> 思维 </tag>
             
             <tag> 补题 </tag>
             
@@ -413,9 +438,9 @@
             
             <tag> 题解 </tag>
             
-            <tag> 思维 </tag>
-            
             <tag> 线段树 </tag>
+            
+            <tag> 思维 </tag>
             
             <tag> 逆序对 </tag>
             
@@ -533,9 +558,9 @@
             
             <tag> 题解 </tag>
             
-            <tag> 思维 </tag>
-            
             <tag> 线段树 </tag>
+            
+            <tag> 思维 </tag>
             
             <tag> 斐波那契数列 </tag>
             
@@ -960,9 +985,9 @@
             
             <tag> 题解 </tag>
             
-            <tag> 思维 </tag>
-            
             <tag> 线段树 </tag>
+            
+            <tag> 思维 </tag>
             
         </tags>
       
@@ -1043,9 +1068,9 @@
             
             <tag> 题解 </tag>
             
-            <tag> 思维 </tag>
-            
             <tag> 线段树 </tag>
+            
+            <tag> 思维 </tag>
             
             <tag> 逆序对 </tag>
             
