@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Namomo Winter Camp 2023 Day2, HoshiuZ&#39;s Blog">
+    <meta name="keywords" content="XDU2023寒假训练1.18, HoshiuZ&#39;s Blog">
     <meta name="description" content="Welcome to HoshiuZ&#39;s Blog">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Namomo Winter Camp 2023 Day2 | HoshiuZ&#39;s Blog</title>
+    <title>XDU2023寒假训练1.18 | HoshiuZ&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -225,7 +225,7 @@
 <script src="/libs/cryptojs/crypto-js.min.js"></script>
 <script>
     (function() {
-        let pwd = '08e3ccd668cffe50b7bfb5e43318c5d27d45946ebfe332f1d66846524e181bf1';
+        let pwd = '';
         if (pwd && pwd.length > 0) {
             if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
                 alert('密码错误，将返回主页！');
@@ -238,12 +238,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/24.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Namomo Winter Camp 2023 Day2</h1>
+                    <h1 class="description center-align post-title">XDU2023寒假训练1.18</h1>
                 </div>
             </div>
         </div>
@@ -359,8 +359,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E8%AE%B0%E5%BD%95/">
-                                <span class="chip bg-color">记录</span>
+                            <a href="/tags/%E8%A1%A5%E9%A2%98/">
+                                <span class="chip bg-color">补题</span>
                             </a>
                         
                     </div>
@@ -384,7 +384,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-01-12
+                    2023-01-29
                 </div>
                 
 
@@ -393,7 +393,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    157
+                    43
                 </div>
                 
 
@@ -423,21 +423,10 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>分析了一下现状。</p>
-<p>然后就开始讲题了。</p>
-<h2 id="2022ICPC南京-A"><a href="#2022ICPC南京-A" class="headerlink" title="2022ICPC南京 A"></a>2022ICPC南京 A</h2><p>逆向思维+二维前缀和。</p>
-<p>直接放题解。</p>
-<p><img src="/2023/01126581/njatj1.png" alt></p>
-<p><img src="/2023/01126581/njatj2.png" alt></p>
-<p><img src="/2023/01126581/njatj3.png" alt></p>
-<p>提到了高维前缀和不是一定要用容斥原理来实现的，还可以一维一维地实现。</p>
-<p>实现代码的过程中踩了一个坑，使用了 <code>memset</code> ，导致了 TLE 。</p>
-<p>究其原因，使用 <code>memset</code> 时间复杂度为 $O(Tnm)$ ，而直接 <code>for</code> 循环来初始化的复杂度为 $O(\sum nm)$ ，题目保证了 $\sum nm\le 10^6$ 。</p>
-<p>这种逆向思维还是挺妙的。</p>
-<hr>
-<h2 id="2022ICPC济南-A"><a href="#2022ICPC济南-A" class="headerlink" title="2022ICPC济南 A"></a>2022ICPC济南 A</h2><p>还是直接放题解。</p>
-<p><img src="/2023/01126581/jnatj.png" alt></p>
-<p>注意要开 <code>long long</code> 。</p>
+                <p>只做出个签到题。</p>
+<h2 id="B-Bingo"><a href="#B-Bingo" class="headerlink" title="B. Bingo"></a>B. Bingo</h2><p>签到题。</p>
+<p>填一个对角线，将头和尾放到另一个对角线上即可。</p>
+<p>需要特判为 $2$ 时的情况。</p>
 
                 
             </div>
@@ -464,7 +453,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://hoshiuz.github.io/2023/01126581.html">http://hoshiuz.github.io/2023/01126581.html</a>
+                    <a href="http://hoshiuz.github.io/2023/012934862.html">http://hoshiuz.github.io/2023/012934862.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -502,8 +491,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E8%AE%B0%E5%BD%95/">
-                                    <span class="chip bg-color">记录</span>
+                                <a href="/tags/%E8%A1%A5%E9%A2%98/">
+                                    <span class="chip bg-color">补题</span>
                                 </a>
                             
                         </div>
@@ -547,29 +536,30 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/011355988.html">
+                <a href="/2023/012934862.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Namomo Winter Camp 2023 Day6">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="XDU2023寒假训练1.18">
                         
-                        <span class="card-title">Namomo Winter Camp 2023 Day6</span>
+                        <span class="card-title">XDU2023寒假训练1.18</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Namomo Winter Camp 2023 Day6
+                            补题
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-01-13
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-29
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -582,15 +572,12 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%AE%B0%E5%BD%95/">
-                        <span class="chip bg-color">记录</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                        <span class="chip bg-color">数据结构</span>
+                    <a href="/tags/%E8%A1%A5%E9%A2%98/">
+                        <span class="chip bg-color">补题</span>
                     </a>
                     
                 </div>
@@ -604,24 +591,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/01116389.html">
+                <a href="/2023/012547422.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Namomo Winter Camp 2023 Day1">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="CF846.Div2 A~C">
                         
-                        <span class="card-title">Namomo Winter Camp 2023 Day1</span>
+                        <span class="card-title">CF846.Div2 A~C</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Day 1
+                            C 题出锅，unrated 了
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-25
                             </span>
                         <span class="publish-author">
                             
@@ -638,12 +625,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%AE%B0%E5%BD%95/">
-                        <span class="chip bg-color">记录</span>
+                    <a href="/tags/%E8%A1%A5%E9%A2%98/">
+                        <span class="chip bg-color">补题</span>
                     </a>
                     
-                    <a href="/tags/MAGIC/">
-                        <span class="chip bg-color">MAGIC</span>
+                    <a href="/tags/%E6%80%9D%E7%BB%B4/">
+                        <span class="chip bg-color">思维</span>
                     </a>
                     
                 </div>
