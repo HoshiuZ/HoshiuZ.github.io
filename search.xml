@@ -4,31 +4,6 @@
   
     
     <entry>
-      <title>XDU2023寒假训练1.18</title>
-      <link href="/2023/012934862.html"/>
-      <url>/2023/012934862.html</url>
-      
-        <content type="html"><![CDATA[<p>只做出个签到题。</p><h2 id="B-Bingo"><a href="#B-Bingo" class="headerlink" title="B. Bingo"></a>B. Bingo</h2><p>签到题。</p><p>填一个对角线，将头和尾放到另一个对角线上即可。</p><p>需要特判为 $2$ 时的情况。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> ACM </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 补题 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>CF846.Div2 A~C</title>
       <link href="/2023/012547422.html"/>
       <url>/2023/012547422.html</url>
@@ -45,9 +20,34 @@
       
         <tags>
             
+            <tag> 思维 </tag>
+            
             <tag> 补题 </tag>
             
-            <tag> 思维 </tag>
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>XDU2023寒假训练1.18</title>
+      <link href="/2023/011834862.html"/>
+      <url>/2023/011834862.html</url>
+      
+        <content type="html"><![CDATA[<p>只做出个签到题。</p><h2 id="B-Bingo"><a href="#B-Bingo" class="headerlink" title="B. Bingo"></a>B. Bingo</h2><p>签到题。</p><p>填一个对角线，将头和尾放到另一个对角线上即可。</p><p>需要特判为 $2$ 时的情况。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> ACM </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 补题 </tag>
             
         </tags>
       
@@ -400,9 +400,9 @@
       
         <tags>
             
-            <tag> 补题 </tag>
-            
             <tag> 思维 </tag>
+            
+            <tag> 补题 </tag>
             
         </tags>
       
@@ -427,9 +427,9 @@
       
         <tags>
             
-            <tag> 补题 </tag>
-            
             <tag> 思维 </tag>
+            
+            <tag> 补题 </tag>
             
             <tag> 比赛 </tag>
             
@@ -462,11 +462,11 @@
       
         <tags>
             
+            <tag> 思维 </tag>
+            
             <tag> 线段树 </tag>
             
             <tag> 补题 </tag>
-            
-            <tag> 思维 </tag>
             
             <tag> 比赛 </tag>
             
@@ -567,9 +567,9 @@
             
             <tag> 题解 </tag>
             
-            <tag> 线段树 </tag>
-            
             <tag> 思维 </tag>
+            
+            <tag> 线段树 </tag>
             
             <tag> 逆序对 </tag>
             
@@ -687,9 +687,9 @@
             
             <tag> 题解 </tag>
             
-            <tag> 线段树 </tag>
-            
             <tag> 思维 </tag>
+            
+            <tag> 线段树 </tag>
             
             <tag> 斐波那契数列 </tag>
             
@@ -1114,9 +1114,9 @@
             
             <tag> 题解 </tag>
             
-            <tag> 线段树 </tag>
-            
             <tag> 思维 </tag>
+            
+            <tag> 线段树 </tag>
             
         </tags>
       
@@ -1197,9 +1197,9 @@
             
             <tag> 题解 </tag>
             
-            <tag> 线段树 </tag>
-            
             <tag> 思维 </tag>
+            
+            <tag> 线段树 </tag>
             
             <tag> 逆序对 </tag>
             
