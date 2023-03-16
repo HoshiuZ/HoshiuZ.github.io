@@ -397,14 +397,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    748
+                    904
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 
@@ -478,6 +478,13 @@ f(n,k)=\sum_{i=1}^{min(k,n)} f(n-i,k)</script><hr>
 <p>如果 $a\le \dfrac{2}{3} s$ 的话 ，那么总有一种方法能够尽可能用上全部的气球，答案为 <code>s/3</code> 。</p>
 <p>若 $a&gt; \dfrac{2}{3}s$ 的话，说明即使是两个 $a$ 两个 $a$ 地用也用不完 $a$ ，所以答案为 $\min(\dfrac{a}{2},b+c)$ 。</p>
 <p>上面的除法均为 / 。</p>
+<hr>
+<h2 id="1328D"><a href="#1328D" class="headerlink" title="1328D"></a>1328D</h2><p>贪心+构造。</p>
+<p><strong>看了题解</strong>。</p>
+<p>答案不会超过三。</p>
+<p>当只有一种类型时答案为 $1$ 。</p>
+<p>否则，当长度为偶数时，直接 1 2 1 2 这样填，所以答案为 $2$ ；当长度为奇数时，若存在两个相邻的类型相同，那么令他们颜色相同，这样就又转化成了奇数的情况（相当于长度减了 $1$ ），接着  1 2 1 2 这样填。答案为 $2$ 。</p>
+<p>否则，当长度为奇数且不存在相邻的类型相同，前 $n-1$ 个 1 2 1 2 这样填，最后一个填 3 即可，答案为 $3$ 。</p>
 
                 
             </div>
@@ -899,7 +906,7 @@ f(n,k)=\sum_{i=1}^{min(k,n)} f(n-i,k)</script><hr>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">48.7k</span>&nbsp;字
+                class="white-color">48.9k</span>&nbsp;字
             
             
             
