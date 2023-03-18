@@ -4,11 +4,36 @@
   
     
     <entry>
+      <title>XDU2023CCCC选拔赛</title>
+      <link href="/2023/03185924.html"/>
+      <url>/2023/03185924.html</url>
+      
+        <content type="html"><![CDATA[<p>睡了两个小时午觉，然后起来去 E 楼。</p><p>找了一个位置后坐下，敲了点东西准备开始了。</p><p>疑惑 随便坐的话密码条怎么发，然后发现比赛延迟了 20 分钟，按照编号来分考场，我应该是 207，忘了我现在在的是哪场了，出门看，就是 207，然后就回到座位上发了 20 分钟呆。</p><p>开始了。</p><p>第一题没啥难度。</p><p>看到循环右移那题，有点懵逼，以为是个啥我不知道的概念，然后跳过了。</p><p>看到复读那题，一直不太会处理字符串，也跳了。</p><p>往后看看，感觉没啥能做的题？？当场感觉要寄了。</p><p>又回去看了看循环右移，发现原来给了什么是循环右移的定义，直接每次右移后把移出去那位放前边就行。写完后一测，样例二过不去，哦， $2^{64}$ ，爆 long long 了，得开 unsigned long long ，过了。</p><p>然后做的挺顺的，前面的感觉的原因事因为没好好读题。</p><p>第八题是给四个点求四面体体积，想起前不久刚补的高数第七章里面的混合积，直接代进去，开 long double ，过了。</p><p>然后开始看 L2 。</p><p>第一题是个大模拟题改编的，本来感觉可以开个栈然后抵消操作，写一半又发现是互相影响的，不太好抵消，果断放弃去看下一题。</p><p>第二题是个求斐波那契平方和， $n$ 非常大，感觉要矩阵加速。手推了推，发现并不难推，推出来后就开码了，过了。</p><p>第三题，字符串，不会，跳了。</p><p>第四题，图论，不会，跳了。</p><p>此时看榜是十几名。</p><p>又回去去看 L1 剩的复读那道题，瞎搞了搞， <code>while(getline(cin,s))</code> 然后输出，居然过了？？</p><p>再看榜，进前十了。</p><p>突然想到，是有部分分的，于是去看看后两题能不能骗点分。</p><p>L2 第一题打了个暴力 30分。</p><p>L2 第四题瞎搞了搞，一交，25 分。改了改，再交，我去，68分！</p><p>骗分大法好！</p><p>再看榜，第四。</p><p>此时还有十分钟比赛结束。</p><p>然后 盯着榜发呆。</p><p>比赛结束，仍是 第四。</p><p>去食堂吃饭。</p><p><img src="/2023/03185924/nsnd.png" alt></p><p>被 CJC 学长吐槽了，乐。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> ACM </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 记录 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Codeforces板刷</title>
       <link href="/2023/031364898.html"/>
       <url>/2023/031364898.html</url>
       
-        <content type="html"><![CDATA[<h1 id="1500-分段"><a href="#1500-分段" class="headerlink" title="1500 分段"></a>1500 分段</h1><h2 id="455A"><a href="#455A" class="headerlink" title="455A"></a>455A</h2><p>DP。</p><p>首先将数排序并记录每个数有多少个。</p><p>首先所有数肯定是都要取完的。</p><p>每个数可能被它前一个数取，可能是自己取，也可能是被它后一个数取。</p><p>所以可以考虑定义状态 $f(i,0/1/2)$ 表示第 $i$ 个数被 前/自己/后 取 时的最大得分。</p><p>考虑如何转移。</p><p>被前面取时，很简单</p><script type="math/tex; mode=display">f(i,0)=f(i-1,1)</script><p>被自己取时，那么它前一个数可能被前一个数的后一个数取，也可能被前一个数的前一个数取，所以为 </p><script type="math/tex; mode=display">f(i,1)=\max\big(f(i-1,0),f(i-1,2)\big)+i\times cnt_i</script><p>其中 $cnt_i$ 表示数 $i$ 的个数。</p><p>被后一个数取时，那么它前一个数可能被自己取，也可能被前一个数的前一个数取，所以为 </p><script type="math/tex; mode=display">f(i,2)=\max\big(f(i-1,0),f(i-1,1)\big)</script><p>过程中取最大值即可得答案。</p><p>时间复杂度 $O(n)$ 。</p><p>事实上可以更精简。</p><p>定义 $f(i)$ 表示取到 $i$ 时的最大得分。</p><p>有 </p><script type="math/tex; mode=display">f(i)=\max\big(f(i-1),f(i-2)+cnt(i)\times i\big)</script><p>不取和取。</p><hr><h2 id="580C"><a href="#580C" class="headerlink" title="580C"></a>580C</h2><p>DFS。</p><p>直接 DFS ，过程中记录以目前节点为末尾的连续点权为 $1$ 的长度，过程中去最大值，到叶节点时判断即可。</p><hr><h1 id="1600-分段"><a href="#1600-分段" class="headerlink" title="1600 分段"></a>1600 分段</h1><h2 id="431C"><a href="#431C" class="headerlink" title="431C"></a>431C</h2><p>递归+记忆化。</p><p>很容易想到，可以转化成 $n$ 叉树的总方案数减去 $k-1$ 叉树的总方案数。</p><p>于是便可以递归 + 记忆化解决本题。</p><p>定义 $f(n,k)$ 表示 $k$ 叉树，和为 $n$ 的方案数。</p><p>有 </p><script type="math/tex; mode=display">f(0,k)=1 \\f(n,k)=\sum_{i=1}^{min(k,n)} f(n-i,k)</script><hr><h1 id="1700-分段"><a href="#1700-分段" class="headerlink" title="1700 分段"></a>1700 分段</h1><h2 id="466C"><a href="#466C" class="headerlink" title="466C"></a>466C</h2><p>前缀和。</p><p>感觉不像这个分段的题。</p><p>直接做一遍前缀和。</p><p>如果整体之和不是三的倍数，那就直接输出 $0$ 。</p><p>否则，遍历一遍前缀和，如果到目前位置的前缀和等于整体之和的三分之一，那么就将 $cnt_i$ 标为 $1$ 。</p><p>处理完后再对 $cnt$ 求前缀和，然后用一个变量，一位一位地计算后缀和。若当前位置 $i$ 的后缀和恰好等于整体之和的三分之一，那么答案就加上 $sum_{cnt_{i-2}}$ 。</p><p>时间复杂度 $O(n)$ 。</p><hr><h2 id="474D"><a href="#474D" class="headerlink" title="474D"></a>474D</h2><p>DP。</p><p>$f(i)$ 表示长度为 $i$ 时的方案数。</p><p>每次可以加 $1$ 个 $0$ 或者 $k$ 个 $1$ ，所以状态转移方程为 $f(n)=f(n-1)+f(n-k)$ 。</p><p>当 $n&lt;k$ 时， $f(n)=1$ 。</p><p>询问 $l,r$ ，求前缀和后求区间和即可。</p><hr><h1 id="1800-分段"><a href="#1800-分段" class="headerlink" title="1800 分段"></a>1800 分段</h1><h2 id="478C"><a href="#478C" class="headerlink" title="478C"></a>478C</h2><p>贪心。</p><p>假设 $a,b,c$ 中最大的是 $a$ ， $a+b+c=s$ 。</p><p>如果 $a\le \dfrac{2}{3} s$ 的话 ，那么总有一种方法能够尽可能用上全部的气球，答案为 <code>s/3</code> 。</p><p>若 $a&gt; \dfrac{2}{3}s$ 的话，说明即使是两个 $a$ 两个 $a$ 地用也用不完 $a$ ，所以答案为 $\min(\dfrac{a}{2},b+c)$ 。</p><p>上面的除法均为 / 。</p><hr><h2 id="1328D"><a href="#1328D" class="headerlink" title="1328D"></a>1328D</h2><p>贪心+构造。</p><p><strong>看了题解</strong>。</p><p>答案不会超过三。</p><p>当只有一种类型时答案为 $1$ 。</p><p>否则，当长度为偶数时，直接 1 2 1 2 这样填，所以答案为 $2$ ；当长度为奇数时，若存在两个相邻的类型相同，那么令他们颜色相同，这样就又转化成了奇数的情况（相当于长度减了 $1$ ），接着  1 2 1 2 这样填。答案为 $2$ 。</p><p>否则，当长度为奇数且不存在相邻的类型相同，前 $n-1$ 个 1 2 1 2 这样填，最后一个填 3 即可，答案为 $3$ 。</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="1500-分段"><a href="#1500-分段" class="headerlink" title="1500 分段"></a>1500 分段</h1><h2 id="455A"><a href="#455A" class="headerlink" title="455A"></a>455A</h2><p>DP。</p><p>首先将数排序并记录每个数有多少个。</p><p>首先所有数肯定是都要取完的。</p><p>每个数可能被它前一个数取，可能是自己取，也可能是被它后一个数取。</p><p>所以可以考虑定义状态 $f(i,0/1/2)$ 表示第 $i$ 个数被 前/自己/后 取 时的最大得分。</p><p>考虑如何转移。</p><p>被前面取时，很简单</p><script type="math/tex; mode=display">f(i,0)=f(i-1,1)</script><p>被自己取时，那么它前一个数可能被前一个数的后一个数取，也可能被前一个数的前一个数取，所以为 </p><script type="math/tex; mode=display">f(i,1)=\max\big(f(i-1,0),f(i-1,2)\big)+i\times cnt_i</script><p>其中 $cnt_i$ 表示数 $i$ 的个数。</p><p>被后一个数取时，那么它前一个数可能被自己取，也可能被前一个数的前一个数取，所以为 </p><script type="math/tex; mode=display">f(i,2)=\max\big(f(i-1,0),f(i-1,1)\big)</script><p>过程中取最大值即可得答案。</p><p>时间复杂度 $O(n)$ 。</p><p>事实上可以更精简。</p><p>定义 $f(i)$ 表示取到 $i$ 时的最大得分。</p><p>有 </p><script type="math/tex; mode=display">f(i)=\max\big(f(i-1),f(i-2)+cnt(i)\times i\big)</script><p>不取和取。</p><hr><h2 id="580C"><a href="#580C" class="headerlink" title="580C"></a>580C</h2><p>DFS。</p><p>直接 DFS ，过程中记录以目前节点为末尾的连续点权为 $1$ 的长度，过程中去最大值，到叶节点时判断即可。</p><hr><h1 id="1600-分段"><a href="#1600-分段" class="headerlink" title="1600 分段"></a>1600 分段</h1><h2 id="431C"><a href="#431C" class="headerlink" title="431C"></a>431C</h2><p>递归+记忆化。</p><p>很容易想到，可以转化成 $n$ 叉树的总方案数减去 $k-1$ 叉树的总方案数。</p><p>于是便可以递归 + 记忆化解决本题。</p><p>定义 $f(n,k)$ 表示 $k$ 叉树，和为 $n$ 的方案数。</p><p>有 </p><script type="math/tex; mode=display">f(0,k)=1 \\f(n,k)=\sum_{i=1}^{min(k,n)} f(n-i,k)</script><hr><h1 id="1700-分段"><a href="#1700-分段" class="headerlink" title="1700 分段"></a>1700 分段</h1><h2 id="466C"><a href="#466C" class="headerlink" title="466C"></a>466C</h2><p>前缀和。</p><p>感觉不像这个分段的题。</p><p>直接做一遍前缀和。</p><p>如果整体之和不是三的倍数，那就直接输出 $0$ 。</p><p>否则，遍历一遍前缀和，如果到目前位置的前缀和等于整体之和的三分之一，那么就将 $cnt_i$ 标为 $1$ 。</p><p>处理完后再对 $cnt$ 求前缀和，然后用一个变量，一位一位地计算后缀和。若当前位置 $i$ 的后缀和恰好等于整体之和的三分之一，那么答案就加上 $sum_{cnt_{i-2}}$ 。</p><p>时间复杂度 $O(n)$ 。</p><hr><h2 id="474D"><a href="#474D" class="headerlink" title="474D"></a>474D</h2><p>DP。</p><p>$f(i)$ 表示长度为 $i$ 时的方案数。</p><p>每次可以加 $1$ 个 $0$ 或者 $k$ 个 $1$ ，所以状态转移方程为 $f(n)=f(n-1)+f(n-k)$ 。</p><p>当 $n&lt;k$ 时， $f(n)=1$ 。</p><p>询问 $l,r$ ，求前缀和后求区间和即可。</p><hr><h1 id="1800-分段"><a href="#1800-分段" class="headerlink" title="1800 分段"></a>1800 分段</h1><h2 id="478C"><a href="#478C" class="headerlink" title="478C"></a>478C</h2><p>贪心。</p><p>假设 $a,b,c$ 中最大的是 $a$ ， $a+b+c=s$ 。</p><p>如果 $a\le \dfrac{2}{3} s$ 的话 ，那么总有一种方法能够尽可能用上全部的气球，答案为 <code>s/3</code> 。</p><p>若 $a&gt; \dfrac{2}{3}s$ 的话，说明即使是两个 $a$ 两个 $a$ 地用也用不完 $a$ ，所以答案为 $\min(\dfrac{a}{2},b+c)$ 。</p><p>上面的除法均为 / 。</p><hr><h2 id="1328D"><a href="#1328D" class="headerlink" title="1328D"></a>1328D</h2><p>贪心+构造。</p><p><strong>看了题解</strong>。</p><p>答案不会超过三。</p><p>当只有一种类型时答案为 $1$ 。</p><p>否则，当长度为偶数时，直接 1 2 1 2 这样填，所以答案为 $2$ ；当长度为奇数时，若存在两个相邻的类型相同，那么令他们颜色相同，这样就又转化成了奇数的情况（相当于长度减了 $1$ ），接着  1 2 1 2 这样填。答案为 $2$ 。</p><p>否则，当长度为奇数且不存在相邻的类型相同，前 $n-1$ 个 1 2 1 2 这样填，最后一个填 3 即可，答案为 $3$ 。</p><hr><h1 id="1900-分段"><a href="#1900-分段" class="headerlink" title="1900 分段"></a>1900 分段</h1><h2 id="577B"><a href="#577B" class="headerlink" title="577B"></a>577B</h2><p>首先可以可以考虑直接对每个数模 $m$ ，统计剩余类个数。</p><p>子序列，想到了背包。</p><p>可以发现是一个恰好装满的多重背包问题。</p><p>直接多重背包过不了，可以进行二进制优化，</p><p>复杂度 $O(n\log m)$ 。</p><p>看了一下题解，发现有结论：如果 $n&gt;m$ ，那么一定有解。</p><p>挺妙的，另一种形式的鸽巢原理，有 $n$ 个 $a_i$ ，也就有 $n$ 个 $s_i$ ，所以模 $m$ 后，必然存在 $i,j$ 使得 $s_i=s_j$ ，所以必然存在一个区间之和模 $m$ 等于 $0$ ，所以必然有解。</p><p>如果知道这个结论的话，那么需要考虑的就只有 $n\le m$ 的情况，那么直接背包就行，无需优化。</p>]]></content>
       
       
       <categories>
@@ -284,9 +309,9 @@
       
         <tags>
             
-            <tag> 学习笔记 </tag>
-            
             <tag> 字符串 </tag>
+            
+            <tag> 学习笔记 </tag>
             
             <tag> 字典树 </tag>
             
@@ -342,11 +367,11 @@
       
         <tags>
             
+            <tag> 练习 </tag>
+            
             <tag> 字符串 </tag>
             
             <tag> Manacher </tag>
-            
-            <tag> 练习 </tag>
             
         </tags>
       
@@ -371,11 +396,11 @@
       
         <tags>
             
-            <tag> 学习笔记 </tag>
-            
             <tag> 字符串 </tag>
             
             <tag> Manacher </tag>
+            
+            <tag> 学习笔记 </tag>
             
         </tags>
       
@@ -454,9 +479,9 @@
       
         <tags>
             
-            <tag> 学习笔记 </tag>
-            
             <tag> 字符串 </tag>
+            
+            <tag> 学习笔记 </tag>
             
             <tag> 哈希 </tag>
             
@@ -1004,9 +1029,9 @@
             
             <tag> 题解 </tag>
             
-            <tag> 二分答案 </tag>
-            
             <tag> SPFA </tag>
+            
+            <tag> 二分答案 </tag>
             
         </tags>
       

@@ -397,14 +397,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    904
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    4 分
                 </div>
                 
 
@@ -485,6 +485,15 @@ f(n,k)=\sum_{i=1}^{min(k,n)} f(n-i,k)</script><hr>
 <p>当只有一种类型时答案为 $1$ 。</p>
 <p>否则，当长度为偶数时，直接 1 2 1 2 这样填，所以答案为 $2$ ；当长度为奇数时，若存在两个相邻的类型相同，那么令他们颜色相同，这样就又转化成了奇数的情况（相当于长度减了 $1$ ），接着  1 2 1 2 这样填。答案为 $2$ 。</p>
 <p>否则，当长度为奇数且不存在相邻的类型相同，前 $n-1$ 个 1 2 1 2 这样填，最后一个填 3 即可，答案为 $3$ 。</p>
+<hr>
+<h1 id="1900-分段"><a href="#1900-分段" class="headerlink" title="1900 分段"></a>1900 分段</h1><h2 id="577B"><a href="#577B" class="headerlink" title="577B"></a>577B</h2><p>首先可以可以考虑直接对每个数模 $m$ ，统计剩余类个数。</p>
+<p>子序列，想到了背包。</p>
+<p>可以发现是一个恰好装满的多重背包问题。</p>
+<p>直接多重背包过不了，可以进行二进制优化，</p>
+<p>复杂度 $O(n\log m)$ 。</p>
+<p>看了一下题解，发现有结论：如果 $n&gt;m$ ，那么一定有解。</p>
+<p>挺妙的，另一种形式的鸽巢原理，有 $n$ 个 $a_i$ ，也就有 $n$ 个 $s_i$ ，所以模 $m$ 后，必然存在 $i,j$ 使得 $s_i=s_j$ ，所以必然存在一个区间之和模 $m$ 等于 $0$ ，所以必然有解。</p>
+<p>如果知道这个结论的话，那么需要考虑的就只有 $n\le m$ 的情况，那么直接背包就行，无需优化。</p>
 
                 
             </div>
@@ -598,30 +607,29 @@ f(n,k)=\sum_{i=1}^{min(k,n)} f(n-i,k)</script><hr>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/031364898.html">
+                <a href="/2023/03185924.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Codeforces板刷">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="XDU2023CCCC选拔赛">
                         
-                        <span class="card-title">Codeforces板刷</span>
+                        <span class="card-title">XDU2023CCCC选拔赛</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            不能再颓下去了！
+                            简单记录
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-13
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-03-18
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -634,13 +642,8 @@ f(n,k)=\sum_{i=1}^{min(k,n)} f(n-i,k)</script><hr>
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E9%A2%98%E8%A7%A3/">
-                        <span class="chip bg-color">题解</span>
-                    </a>
                     
                     <a href="/tags/%E8%AE%B0%E5%BD%95/">
                         <span class="chip bg-color">记录</span>
@@ -906,7 +909,7 @@ f(n,k)=\sum_{i=1}^{min(k,n)} f(n-i,k)</script><hr>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">48.9k</span>&nbsp;字
+                class="white-color">49.7k</span>&nbsp;字
             
             
             
