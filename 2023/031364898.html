@@ -397,14 +397,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    5 分
                 </div>
                 
 
@@ -494,6 +494,19 @@ f(n,k)=\sum_{i=1}^{min(k,n)} f(n-i,k)</script><hr>
 <p>看了一下题解，发现有结论：如果 $n&gt;m$ ，那么一定有解。</p>
 <p>挺妙的，另一种形式的鸽巢原理，有 $n$ 个 $a_i$ ，也就有 $n$ 个 $s_i$ ，所以模 $m$ 后，必然存在 $i,j$ 使得 $s_i=s_j$ ，所以必然存在一个区间之和模 $m$ 等于 $0$ ，所以必然有解。</p>
 <p>如果知道这个结论的话，那么需要考虑的就只有 $n\le m$ 的情况，那么直接背包就行，无需优化。</p>
+<hr>
+<h1 id="2200-分段"><a href="#2200-分段" class="headerlink" title="2200 分段"></a>2200 分段</h1><h2 id="490F"><a href="#490F" class="headerlink" title="490F"></a>490F</h2><p>本题数据很小，所以可以直接以每个点为起点 dfs 一遍求 LIS ，时间复杂度 $O(n^2 \log n)$ 。</p>
+<p>如果 $n$ 大一些的话，这种做法就不行了。</p>
+<p>考虑每个点建一个权值线段树，维护以 $i$ 为结尾的 LIS 和 LDS 长度。</p>
+<p>在枚举一个点时，有两种 LIS ：</p>
+<ul>
+<li>经过该点的 LIS 。</li>
+<li>不经过该点的 LIS 。</li>
+</ul>
+<p>第一种长度就是一个子树的 LIS 加另一个子树的 LDS 再加 1 。</p>
+<p>另一种直接在线段树合并的过程中用左边的 LIS 与右边的 LDS 之和来更新 ans 即可。注意还可以反过来。</p>
+<p>写起来细节很多，需要仔细想想。</p>
+<p>调了好久 qaq 。</p>
 <hr>
 <h1 id="2300-分段"><a href="#2300-分段" class="headerlink" title="2300 分段"></a>2300 分段</h1><h2 id="600E"><a href="#600E" class="headerlink" title="600E"></a>600E</h2><p>比较板的线段树合并。</p>
 <p>注意开 long long 。</p>
@@ -912,7 +925,7 @@ f(n,k)=\sum_{i=1}^{min(k,n)} f(n-i,k)</script><hr>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">52.3k</span>&nbsp;字
+                class="white-color">53.5k</span>&nbsp;字
             
             
             
