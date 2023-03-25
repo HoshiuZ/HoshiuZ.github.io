@@ -397,7 +397,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.3k
+                    1.5k
                 </div>
                 
 
@@ -494,6 +494,16 @@ f(n,k)=\sum_{i=1}^{min(k,n)} f(n-i,k)</script><hr>
 <p>看了一下题解，发现有结论：如果 $n&gt;m$ ，那么一定有解。</p>
 <p>挺妙的，另一种形式的鸽巢原理，有 $n$ 个 $a_i$ ，也就有 $n$ 个 $s_i$ ，所以模 $m$ 后，必然存在 $i,j$ 使得 $s_i=s_j$ ，所以必然存在一个区间之和模 $m$ 等于 $0$ ，所以必然有解。</p>
 <p>如果知道这个结论的话，那么需要考虑的就只有 $n\le m$ 的情况，那么直接背包就行，无需优化。</p>
+<hr>
+<h1 id="2000-分段"><a href="#2000-分段" class="headerlink" title="2000 分段"></a>2000 分段</h1><h2 id="380C"><a href="#380C" class="headerlink" title="380C"></a>380C</h2><p><strong>看了题解。</strong></p>
+<p>求的是子序列的最长合法，直接求不好求，所以考虑求不合法的，即无法匹配的 ( 与 ) 数量 $lcnt$ 与 $rcnt$ 。</p>
+<p>对于两个区间，若合并这两个区间，容易发现新区间的 $lcnt$ 与 $rcnt$ 是易于维护的</p>
+<script type="math/tex; mode=display">
+lcnt=lcnt_1+lcnt_2-\min(lcnt_1,rnct_2) \\
+rcnt=rcnt_1+rcnt_2-\min(lcnt_1,rcnt_2)</script><p>这个很好想，合并后左边区间的无法匹配的 ( 可以与右边区间无法匹配的 ) 匹配。</p>
+<p>于是可以考虑用线段树来维护。</p>
+<p>询问区间时类似，也用上面的求法。</p>
+<p>时间复杂度 $O(n\log n)$ 。</p>
 <hr>
 <h1 id="2200-分段"><a href="#2200-分段" class="headerlink" title="2200 分段"></a>2200 分段</h1><h2 id="490F"><a href="#490F" class="headerlink" title="490F"></a>490F</h2><p>本题数据很小，所以可以直接以每个点为起点 dfs 一遍求 LIS ，时间复杂度 $O(n^2 \log n)$ 。</p>
 <p>如果 $n$ 大一些的话，这种做法就不行了。</p>
@@ -925,7 +935,7 @@ f(n,k)=\sum_{i=1}^{min(k,n)} f(n-i,k)</script><hr>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">53.5k</span>&nbsp;字
+                class="white-color">53.7k</span>&nbsp;字
             
             
             
