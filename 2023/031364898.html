@@ -505,6 +505,13 @@ rcnt=rcnt_1+rcnt_2-\min(lcnt_1,rcnt_2)</script><p>这个很好想，合并后左
 <p>询问区间时类似，也用上面的求法。</p>
 <p>时间复杂度 $O(n\log n)$ 。</p>
 <hr>
+<h2 id="1438C"><a href="#1438C" class="headerlink" title="1438C"></a>1438C</h2><p><strong>看了题解。</strong></p>
+<p>可以考虑从奇偶性的角度来分析。</p>
+<p>奇数肯定是不等于偶数的。</p>
+<p>所以可以按照棋盘那样，一个奇一个偶。</p>
+<p>如果当前位置的数的奇偶性与它应是的奇偶性不符，就加一。</p>
+<p>还是挺妙的。</p>
+<hr>
 <h1 id="2200-分段"><a href="#2200-分段" class="headerlink" title="2200 分段"></a>2200 分段</h1><h2 id="490F"><a href="#490F" class="headerlink" title="490F"></a>490F</h2><p>本题数据很小，所以可以直接以每个点为起点 dfs 一遍求 LIS ，时间复杂度 $O(n^2 \log n)$ 。</p>
 <p>如果 $n$ 大一些的话，这种做法就不行了。</p>
 <p>考虑每个点建一个权值线段树，维护以 $i$ 为结尾的 LIS 和 LDS 长度。</p>
@@ -935,7 +942,7 @@ rcnt=rcnt_1+rcnt_2-\min(lcnt_1,rcnt_2)</script><p>这个很好想，合并后左
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">53.7k</span>&nbsp;字
+                class="white-color">56.3k</span>&nbsp;字
             
             
             
