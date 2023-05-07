@@ -180,9 +180,9 @@
       
         <tags>
             
-            <tag> 思维 </tag>
-            
             <tag> 补题 </tag>
+            
+            <tag> 思维 </tag>
             
         </tags>
       
@@ -425,9 +425,9 @@
       
         <tags>
             
-            <tag> 比赛 </tag>
-            
             <tag> 补题 </tag>
+            
+            <tag> 比赛 </tag>
             
         </tags>
       
@@ -481,9 +481,9 @@
       
         <tags>
             
-            <tag> 思维 </tag>
-            
             <tag> 补题 </tag>
+            
+            <tag> 思维 </tag>
             
         </tags>
       
@@ -508,11 +508,11 @@
       
         <tags>
             
-            <tag> 比赛 </tag>
+            <tag> 补题 </tag>
             
             <tag> 思维 </tag>
             
-            <tag> 补题 </tag>
+            <tag> 比赛 </tag>
             
             <tag> 矩阵加速递推 </tag>
             
@@ -543,21 +543,21 @@
       
         <tags>
             
-            <tag> 比赛 </tag>
+            <tag> 补题 </tag>
             
             <tag> 思维 </tag>
             
-            <tag> 补题 </tag>
+            <tag> 比赛 </tag>
             
             <tag> 线段树 </tag>
+            
+            <tag> DP </tag>
+            
+            <tag> 矩阵加速递推 </tag>
             
             <tag> 模拟 </tag>
             
             <tag> 数学 </tag>
-            
-            <tag> 矩阵加速递推 </tag>
-            
-            <tag> DP </tag>
             
             <tag> 贪心 </tag>
             
@@ -584,9 +584,9 @@
       
         <tags>
             
-            <tag> 比赛 </tag>
-            
             <tag> 补题 </tag>
+            
+            <tag> 比赛 </tag>
             
             <tag> 暴力 </tag>
             
@@ -710,9 +710,9 @@
       
         <tags>
             
-            <tag> 比赛 </tag>
-            
             <tag> 补题 </tag>
+            
+            <tag> 比赛 </tag>
             
         </tags>
       
@@ -1002,9 +1002,9 @@
             
             <tag> 题解 </tag>
             
-            <tag> SPFA </tag>
-            
             <tag> 二分答案 </tag>
+            
+            <tag> SPFA </tag>
             
         </tags>
       
