@@ -393,14 +393,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    427
+                    603
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -444,8 +444,17 @@
 <p>同时开一个优先队列，离开时间最早的在前，然后按照时间顺序处理到目前的人时，将在时间的人全部出队，再将目前的人加进去。</p>
 <p>如此模拟即可。</p>
 <hr>
-<p>以上四题是赛时前 2 小时做出来的，后 3 小时一题没做出来。</p>
+<p>以上四题是赛时前 2 小时做出来的，后 3 小时一题没做出来 QAQ .</p>
 <hr>
+<h2 id="G"><a href="#G" class="headerlink" title="G"></a>G</h2><p>考试一直在调范围，妄图卡过去，暴交 41 发 23333 。</p>
+<p>当时没有想到子集枚举。</p>
+<p>首先，对于学分为 $i$ 时能够获得的最大的知识 ，假设其为 $dp[i]$ 。</p>
+<p>这个很显然可以 $O(N\sum a_i)$ 求出来。</p>
+<p>然后假设 $maxn[i]$ 表示学分为 $i$ 及其子集时能够获得的最大的知识。显然有 </p>
+<script type="math/tex; mode=display">
+maxn[i]=\max(dp[j]),j\subset i</script><p>这个可以用子集枚举 $O(3^{\log k})$ 求出来。</p>
+<p>于是假设全集是 $S$ ，那么只需要 $O(\sum a_i)$ 求出 $maxn[i]+maxn[S\oplus i]$ 的最大值即可，其中 $i$ 与 $S\oplus i$ 均要大于 $K$ 且合法。</p>
+<p>如此即可解决本题。</p>
 
                 
             </div>
@@ -859,7 +868,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">49.4k</span>&nbsp;字
+                class="white-color">49.6k</span>&nbsp;字
             
             
             
