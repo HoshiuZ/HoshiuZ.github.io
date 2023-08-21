@@ -397,14 +397,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    710
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    5 分
                 </div>
                 
 
@@ -459,6 +459,42 @@ hoshiuz@HoshiuZ:~$ /bin/echo <span class="token environment constant">$PATH</spa
 /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>当执行 <code>echo</code> 命令时， shell 了解到需要执行 <code>echo</code> 这个程序，随后它便会在 <code>$PATH</code> 中搜索由 <code>:</code> 所分割的一系列目录，基于名字搜索该程序，当知道该程序时便执行。确定某个程序名代表的是哪个具体的程序，可以使用 <code>which</code> 程序。也可以绕过 <code>$PATH</code> ，通过直接指定需要执行的程序的路径来执行该程序。</p>
+<h2 id="在-shell-中导航"><a href="#在-shell-中导航" class="headerlink" title="在 shell 中导航"></a>在 shell 中导航</h2><p>shell 中的路径是一组被分割的目录，在 Linux 和 macOS 上使用 <code>/</code> 分割， 而在 Windows 上是 <code>\</code>  。路径 <code>/</code> 代表的是系统的根目录，所有的文件夹都包括在这个路径之下，在 Windows 上每个盘都有一个根目录。在我使用的 Linux 文件系统中，如果某个路径以 <code>/</code> 开头，那么它是一个绝对路径，其他的都是相对路径。相对路径是指相对于当前工作目录的路径，当前工作目录可以使用 <code>pwd</code> 命令来获取 ( print working directory ) 。此外，切换目录需要使用 <code>cd</code> 命令。在路径中， <code>.</code> 表示的是当前目录，而 <code>..</code> 表示上级目录：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~$ <span class="token builtin class-name">pwd</span>
+/home/hoshiuz
+hoshiuz@HoshiuZ:~$ <span class="token builtin class-name">cd</span> /home
+hoshiuz@HoshiuZ:/home$ <span class="token builtin class-name">pwd</span>
+/home
+hoshiuz@HoshiuZ:/home$ <span class="token builtin class-name">cd</span> <span class="token punctuation">..</span>
+hoshiuz@HoshiuZ:/$ <span class="token builtin class-name">pwd</span>
+/
+hoshiuz@HoshiuZ:/$ <span class="token builtin class-name">cd</span> ./home
+hoshiuz@HoshiuZ:/home$ <span class="token builtin class-name">pwd</span>
+/home
+hoshiuz@HoshiuZ:/home$ <span class="token builtin class-name">cd</span> hoshiuz
+hoshiuz@HoshiuZ:~$ <span class="token builtin class-name">pwd</span>
+/home/hoshiuz
+hoshiuz@HoshiuZ:~$ <span class="token punctuation">..</span>/<span class="token punctuation">..</span>/bin/echo hello
+hello<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>shell 会实时显示当时的路径信息。</p>
+<p>一般来说，当运行一个程序时，如果没有指定路径，则该程序会在当前目录下执行。</p>
+<p>为了查看指定目录下包含哪些文件，使用 <code>ls</code> 命令： </p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~$ <span class="token function">ls</span>
+Desktop    Downloads  Pictures  snap       Videos
+Documents  Music      Public    Templates  workarea
+hoshiuz@HoshiuZ:~$ <span class="token builtin class-name">cd</span> <span class="token punctuation">..</span>
+hoshiuz@HoshiuZ:/home$ <span class="token function">ls</span>
+hoshiuz
+hoshiuz@HoshiuZ:/home$ <span class="token builtin class-name">cd</span> <span class="token punctuation">..</span>
+hoshiuz@HoshiuZ:/$ <span class="token function">ls</span>
+bin    dev   lib    libx32      mnt   root  snap      sys  var
+boot   etc   lib32  lost+found  opt   run   srv       tmp
+cdrom  home  lib64  media       proc  sbin  swapfile  usr<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>除非利用第一个参数来指定目录，否则 <code>ls</code> 会打印当前目录下的文件。大多数的命令接受标记和选项（带有值的标记），它们以 <code>-</code> 开头，并可以改变程序的行为。通常，在执行程序时使用 <code>-h</code> 或 <code>--help</code> 标记可以打印帮助信息，以便了解有哪些可用的标记或选项。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~$ <span class="token function">ls</span> -l /home
+总计 <span class="token number">4</span>
+drwxr-x--- <span class="token number">16</span> hoshiuz hoshiuz <span class="token number">4096</span> Mar  <span class="token number">9</span> <span class="token number">20</span>:05 hoshiuz<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><code>-l</code> 参数可以更加详细地列出目录下文件或文件夹的信息。最后一行中，第一个字符 <code>d</code> 表示 <code>hoshiuz</code> 是一个目录。然后接下来的九个字符，每三个字符构成一组（ rwx ），分别代表了文件所有者、用户组以及其他人所具有的权限，其中 <code>-</code> 表示该用户不具备相应的条件。可修改为 w ，可执行为 x ，可读为 r 。</p>
 
                 
             </div>
@@ -880,7 +916,7 @@ hoshiuz@HoshiuZ:~$ /bin/echo <span class="token environment constant">$PATH</spa
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">54.8k</span>&nbsp;字
+                class="white-color">55.3k</span>&nbsp;字
             
             
             

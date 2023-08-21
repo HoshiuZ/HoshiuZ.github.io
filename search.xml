@@ -8,7 +8,7 @@
       <link href="/2023/082138678.html"/>
       <url>/2023/082138678.html</url>
       
-        <content type="html"><![CDATA[<p>课程为 MIT 推出的课程： The Missing Semester of Your CS Education 。</p><p><a href="https://space.bilibili.com/518734451/channel/seriesdetail?sid=3320015">双语字幕课程</a></p><p><a href="https://missing.csail.mit.edu/">中文课程讲义</a></p><p>笔记内容多来自与课程视频与讲义。</p><h1 id="主题-1-：-The-Shell"><a href="#主题-1-：-The-Shell" class="headerlink" title="主题 1 ： The Shell"></a>主题 1 ： The Shell</h1><p>使用环境： Linux 虚拟机终端。</p><h2 id="shell-是什么"><a href="#shell-是什么" class="headerlink" title="shell 是什么"></a>shell 是什么</h2><p>几乎所有容易接触到的平台都支持某种形式的 shell ，有些甚至还提供了多种 shell 供选择。虽然它们之间有些细节上的差异，但是其核心功能都是一样的：它允许你执行程序，输入并获取某种半结构化的输出。</p><h2 id="使用-shell"><a href="#使用-shell" class="headerlink" title="使用 shell"></a>使用 shell</h2><p>打开终端，看到一个提示符。</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~$ <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>这是 shell 最主要的文本接口，显示出我的主机名为 <code>HoshiuZ</code> ，当前的工作目录为 <code>~</code> ，<code>$</code> 符号表示当前的身份不是 root 用户。在这个提示符中，可以输入命令，命令最终会被 shell 解析。最简单的命令是执行一个程序：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~$ <span class="token function">date</span>Mon Aug <span class="token number">21</span> 02:51:25 AM CDT <span class="token number">2023</span>hoshiuz@HoshiuZ:~$ <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p>这里执行了 <code>date</code> 这个程序，容易发现其打印出了目前的日期和时间，然后 shell 等待输入其他命令。</p><p>可以在执行命令的同时向程序传递参数：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~$ <span class="token builtin class-name">echo</span> hellohello<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>上例中，让 shell 执行 <code>echo</code> ，同时指定参数 <code>hello</code> 。<code>echo</code> 程序将该参数打印出来。shell 基于空格分割命令并进行解析，然后执行第一个单词代表的程序，并将后续的单词作为程序可以访问的参数。如果希望传递的参数中包含空格（例如 <code>hello world</code> ），则可以用引号包裹起来或者是使用转移符号 <code>\</code> 进行处理：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~$ <span class="token builtin class-name">echo</span> <span class="token string">"hello world"</span>hello worldhoshiuz@HoshiuZ:~$ <span class="token builtin class-name">echo</span> <span class="token string">'hello world'</span>hello worldhoshiuz@HoshiuZ:~$ <span class="token builtin class-name">echo</span> hello<span class="token punctuation">\</span> worldhello world<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>当在 shell 中执行命令时，实际上是在执行一段 shell 可以解释执行的简短代码。如果要求 shell 执行某个命令，但是该指令并不是 shell 所了解的编程关键字，那么它会去咨询环境变量 <code>$PATH</code> ，它会列出当 shell 接到某条指令时，进行程序搜索的路径：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~$ <span class="token builtin class-name">echo</span> <span class="token environment constant">$PATH</span>/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/binhoshiuz@HoshiuZ:~$ <span class="token function">which</span> <span class="token builtin class-name">echo</span>/usr/bin/echohoshiuz@HoshiuZ:~$ /bin/echo <span class="token environment constant">$PATH</span>/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>当执行 <code>echo</code> 命令时， shell 了解到需要执行 <code>echo</code> 这个程序，随后它便会在 <code>$PATH</code> 中搜索由 <code>:</code> 所分割的一系列目录，基于名字搜索该程序，当知道该程序时便执行。确定某个程序名代表的是哪个具体的程序，可以使用 <code>which</code> 程序。也可以绕过 <code>$PATH</code> ，通过直接指定需要执行的程序的路径来执行该程序。</p>]]></content>
+        <content type="html"><![CDATA[<p>课程为 MIT 推出的课程： The Missing Semester of Your CS Education 。</p><p><a href="https://space.bilibili.com/518734451/channel/seriesdetail?sid=3320015">双语字幕课程</a></p><p><a href="https://missing.csail.mit.edu/">中文课程讲义</a></p><p>笔记内容多来自与课程视频与讲义。</p><h1 id="主题-1-：-The-Shell"><a href="#主题-1-：-The-Shell" class="headerlink" title="主题 1 ： The Shell"></a>主题 1 ： The Shell</h1><p>使用环境： Linux 虚拟机终端。</p><h2 id="shell-是什么"><a href="#shell-是什么" class="headerlink" title="shell 是什么"></a>shell 是什么</h2><p>几乎所有容易接触到的平台都支持某种形式的 shell ，有些甚至还提供了多种 shell 供选择。虽然它们之间有些细节上的差异，但是其核心功能都是一样的：它允许你执行程序，输入并获取某种半结构化的输出。</p><h2 id="使用-shell"><a href="#使用-shell" class="headerlink" title="使用 shell"></a>使用 shell</h2><p>打开终端，看到一个提示符。</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~$ <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>这是 shell 最主要的文本接口，显示出我的主机名为 <code>HoshiuZ</code> ，当前的工作目录为 <code>~</code> ，<code>$</code> 符号表示当前的身份不是 root 用户。在这个提示符中，可以输入命令，命令最终会被 shell 解析。最简单的命令是执行一个程序：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~$ <span class="token function">date</span>Mon Aug <span class="token number">21</span> 02:51:25 AM CDT <span class="token number">2023</span>hoshiuz@HoshiuZ:~$ <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p>这里执行了 <code>date</code> 这个程序，容易发现其打印出了目前的日期和时间，然后 shell 等待输入其他命令。</p><p>可以在执行命令的同时向程序传递参数：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~$ <span class="token builtin class-name">echo</span> hellohello<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>上例中，让 shell 执行 <code>echo</code> ，同时指定参数 <code>hello</code> 。<code>echo</code> 程序将该参数打印出来。shell 基于空格分割命令并进行解析，然后执行第一个单词代表的程序，并将后续的单词作为程序可以访问的参数。如果希望传递的参数中包含空格（例如 <code>hello world</code> ），则可以用引号包裹起来或者是使用转移符号 <code>\</code> 进行处理：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~$ <span class="token builtin class-name">echo</span> <span class="token string">"hello world"</span>hello worldhoshiuz@HoshiuZ:~$ <span class="token builtin class-name">echo</span> <span class="token string">'hello world'</span>hello worldhoshiuz@HoshiuZ:~$ <span class="token builtin class-name">echo</span> hello<span class="token punctuation">\</span> worldhello world<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>当在 shell 中执行命令时，实际上是在执行一段 shell 可以解释执行的简短代码。如果要求 shell 执行某个命令，但是该指令并不是 shell 所了解的编程关键字，那么它会去咨询环境变量 <code>$PATH</code> ，它会列出当 shell 接到某条指令时，进行程序搜索的路径：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~$ <span class="token builtin class-name">echo</span> <span class="token environment constant">$PATH</span>/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/binhoshiuz@HoshiuZ:~$ <span class="token function">which</span> <span class="token builtin class-name">echo</span>/usr/bin/echohoshiuz@HoshiuZ:~$ /bin/echo <span class="token environment constant">$PATH</span>/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>当执行 <code>echo</code> 命令时， shell 了解到需要执行 <code>echo</code> 这个程序，随后它便会在 <code>$PATH</code> 中搜索由 <code>:</code> 所分割的一系列目录，基于名字搜索该程序，当知道该程序时便执行。确定某个程序名代表的是哪个具体的程序，可以使用 <code>which</code> 程序。也可以绕过 <code>$PATH</code> ，通过直接指定需要执行的程序的路径来执行该程序。</p><h2 id="在-shell-中导航"><a href="#在-shell-中导航" class="headerlink" title="在 shell 中导航"></a>在 shell 中导航</h2><p>shell 中的路径是一组被分割的目录，在 Linux 和 macOS 上使用 <code>/</code> 分割， 而在 Windows 上是 <code>\</code>  。路径 <code>/</code> 代表的是系统的根目录，所有的文件夹都包括在这个路径之下，在 Windows 上每个盘都有一个根目录。在我使用的 Linux 文件系统中，如果某个路径以 <code>/</code> 开头，那么它是一个绝对路径，其他的都是相对路径。相对路径是指相对于当前工作目录的路径，当前工作目录可以使用 <code>pwd</code> 命令来获取 ( print working directory ) 。此外，切换目录需要使用 <code>cd</code> 命令。在路径中， <code>.</code> 表示的是当前目录，而 <code>..</code> 表示上级目录：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~$ <span class="token builtin class-name">pwd</span>/home/hoshiuzhoshiuz@HoshiuZ:~$ <span class="token builtin class-name">cd</span> /homehoshiuz@HoshiuZ:/home$ <span class="token builtin class-name">pwd</span>/homehoshiuz@HoshiuZ:/home$ <span class="token builtin class-name">cd</span> <span class="token punctuation">..</span>hoshiuz@HoshiuZ:/$ <span class="token builtin class-name">pwd</span>/hoshiuz@HoshiuZ:/$ <span class="token builtin class-name">cd</span> ./homehoshiuz@HoshiuZ:/home$ <span class="token builtin class-name">pwd</span>/homehoshiuz@HoshiuZ:/home$ <span class="token builtin class-name">cd</span> hoshiuzhoshiuz@HoshiuZ:~$ <span class="token builtin class-name">pwd</span>/home/hoshiuzhoshiuz@HoshiuZ:~$ <span class="token punctuation">..</span>/<span class="token punctuation">..</span>/bin/echo hellohello<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>shell 会实时显示当时的路径信息。</p><p>一般来说，当运行一个程序时，如果没有指定路径，则该程序会在当前目录下执行。</p><p>为了查看指定目录下包含哪些文件，使用 <code>ls</code> 命令： </p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~$ <span class="token function">ls</span>Desktop    Downloads  Pictures  snap       VideosDocuments  Music      Public    Templates  workareahoshiuz@HoshiuZ:~$ <span class="token builtin class-name">cd</span> <span class="token punctuation">..</span>hoshiuz@HoshiuZ:/home$ <span class="token function">ls</span>hoshiuzhoshiuz@HoshiuZ:/home$ <span class="token builtin class-name">cd</span> <span class="token punctuation">..</span>hoshiuz@HoshiuZ:/$ <span class="token function">ls</span>bin    dev   lib    libx32      mnt   root  snap      sys  varboot   etc   lib32  lost+found  opt   run   srv       tmpcdrom  home  lib64  media       proc  sbin  swapfile  usr<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>除非利用第一个参数来指定目录，否则 <code>ls</code> 会打印当前目录下的文件。大多数的命令接受标记和选项（带有值的标记），它们以 <code>-</code> 开头，并可以改变程序的行为。通常，在执行程序时使用 <code>-h</code> 或 <code>--help</code> 标记可以打印帮助信息，以便了解有哪些可用的标记或选项。</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~$ <span class="token function">ls</span> -l /home总计 <span class="token number">4</span>drwxr-x--- <span class="token number">16</span> hoshiuz hoshiuz <span class="token number">4096</span> Mar  <span class="token number">9</span> <span class="token number">20</span>:05 hoshiuz<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p><code>-l</code> 参数可以更加详细地列出目录下文件或文件夹的信息。最后一行中，第一个字符 <code>d</code> 表示 <code>hoshiuz</code> 是一个目录。然后接下来的九个字符，每三个字符构成一组（ rwx ），分别代表了文件所有者、用户组以及其他人所具有的权限，其中 <code>-</code> 表示该用户不具备相应的条件。可修改为 w ，可执行为 x ，可读为 r 。</p>]]></content>
       
       
       <categories>
@@ -788,9 +788,9 @@
             
             <tag> 补题 </tag>
             
-            <tag> 线段树 </tag>
-            
             <tag> 思维 </tag>
+            
+            <tag> 线段树 </tag>
             
             <tag> 模拟 </tag>
             
@@ -889,9 +889,9 @@
             
             <tag> 题解 </tag>
             
-            <tag> 线段树 </tag>
-            
             <tag> 思维 </tag>
+            
+            <tag> 线段树 </tag>
             
             <tag> 逆序对 </tag>
             
@@ -1009,9 +1009,9 @@
             
             <tag> 题解 </tag>
             
-            <tag> 线段树 </tag>
-            
             <tag> 思维 </tag>
+            
+            <tag> 线段树 </tag>
             
             <tag> 斐波那契数列 </tag>
             
@@ -1436,9 +1436,9 @@
             
             <tag> 题解 </tag>
             
-            <tag> 线段树 </tag>
-            
             <tag> 思维 </tag>
+            
+            <tag> 线段树 </tag>
             
         </tags>
       
@@ -1519,9 +1519,9 @@
             
             <tag> 题解 </tag>
             
-            <tag> 线段树 </tag>
-            
             <tag> 思维 </tag>
+            
+            <tag> 线段树 </tag>
             
             <tag> 逆序对 </tag>
             
