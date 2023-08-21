@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>The Missing Semester of Your CS Education 课程笔记</title>
+      <link href="/2023/082138678.html"/>
+      <url>/2023/082138678.html</url>
+      
+        <content type="html"><![CDATA[<p>课程为 MIT 推出的课程： The Missing Semester of Your CS Education 。</p><p><a href="https://space.bilibili.com/518734451/channel/seriesdetail?sid=3320015">双语字幕课程</a></p><p><a href="https://missing.csail.mit.edu/">中文课程讲义</a></p><p>笔记内容多来自与课程视频与讲义。</p><h1 id="主题-1-：-The-Shell"><a href="#主题-1-：-The-Shell" class="headerlink" title="主题 1 ： The Shell"></a>主题 1 ： The Shell</h1><p>使用环境： Linux 虚拟机终端。</p><h2 id="shell-是什么"><a href="#shell-是什么" class="headerlink" title="shell 是什么"></a>shell 是什么</h2><p>几乎所有容易接触到的平台都支持某种形式的 shell ，有些甚至还提供了多种 shell 供选择。虽然它们之间有些细节上的差异，但是其核心功能都是一样的：它允许你执行程序，输入并获取某种半结构化的输出。</p><h2 id="使用-shell"><a href="#使用-shell" class="headerlink" title="使用 shell"></a>使用 shell</h2><p>打开终端，看到一个提示符。</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~$ <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>这是 shell 最主要的文本接口，显示出我的主机名为 <code>HoshiuZ</code> ，当前的工作目录为 <code>~</code> ，<code>$</code> 符号表示当前的身份不是 root 用户。在这个提示符中，可以输入命令，命令最终会被 shell 解析。最简单的命令是执行一个程序：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~$ <span class="token function">date</span>Mon Aug <span class="token number">21</span> 02:51:25 AM CDT <span class="token number">2023</span>hoshiuz@HoshiuZ:~$ <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p>这里执行了 <code>date</code> 这个程序，容易发现其打印出了目前的日期和时间，然后 shell 等待输入其他命令。</p><p>可以在执行命令的同时向程序传递参数：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~$ <span class="token builtin class-name">echo</span> hellohello<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>上例中，让 shell 执行 <code>echo</code> ，同时指定参数 <code>hello</code> 。<code>echo</code> 程序将该参数打印出来。shell 基于空格分割命令并进行解析，然后执行第一个单词代表的程序，并将后续的单词作为程序可以访问的参数。如果希望传递的参数中包含空格（例如 <code>hello world</code> ），则可以用引号包裹起来或者是使用转移符号 <code>\</code> 进行处理：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~$ <span class="token builtin class-name">echo</span> <span class="token string">"hello world"</span>hello worldhoshiuz@HoshiuZ:~$ <span class="token builtin class-name">echo</span> <span class="token string">'hello world'</span>hello worldhoshiuz@HoshiuZ:~$ <span class="token builtin class-name">echo</span> hello<span class="token punctuation">\</span> worldhello world<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>当在 shell 中执行命令时，实际上是在执行一段 shell 可以解释执行的简短代码。如果要求 shell 执行某个命令，但是该指令并不是 shell 所了解的编程关键字，那么它会去咨询环境变量 <code>$PATH</code> ，它会列出当 shell 接到某条指令时，进行程序搜索的路径：</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~$ <span class="token builtin class-name">echo</span> <span class="token environment constant">$PATH</span>/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/binhoshiuz@HoshiuZ:~$ <span class="token function">which</span> <span class="token builtin class-name">echo</span>/usr/bin/echohoshiuz@HoshiuZ:~$ /bin/echo <span class="token environment constant">$PATH</span>/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>当执行 <code>echo</code> 命令时， shell 了解到需要执行 <code>echo</code> 这个程序，随后它便会在 <code>$PATH</code> 中搜索由 <code>:</code> 所分割的一系列目录，基于名字搜索该程序，当知道该程序时便执行。确定某个程序名代表的是哪个具体的程序，可以使用 <code>which</code> 程序。也可以绕过 <code>$PATH</code> ，通过直接指定需要执行的程序的路径来执行该程序。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 学习笔记 </tag>
+            
+            <tag> 技术 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>2023牛客暑假多校10</title>
       <link href="/2023/081855340.html"/>
       <url>/2023/081855340.html</url>
@@ -761,9 +788,9 @@
             
             <tag> 补题 </tag>
             
-            <tag> 思维 </tag>
-            
             <tag> 线段树 </tag>
+            
+            <tag> 思维 </tag>
             
             <tag> 模拟 </tag>
             
@@ -862,9 +889,9 @@
             
             <tag> 题解 </tag>
             
-            <tag> 思维 </tag>
-            
             <tag> 线段树 </tag>
+            
+            <tag> 思维 </tag>
             
             <tag> 逆序对 </tag>
             
@@ -982,9 +1009,9 @@
             
             <tag> 题解 </tag>
             
-            <tag> 思维 </tag>
-            
             <tag> 线段树 </tag>
+            
+            <tag> 思维 </tag>
             
             <tag> 斐波那契数列 </tag>
             
@@ -1409,9 +1436,9 @@
             
             <tag> 题解 </tag>
             
-            <tag> 思维 </tag>
-            
             <tag> 线段树 </tag>
+            
+            <tag> 思维 </tag>
             
         </tags>
       
@@ -1492,9 +1519,9 @@
             
             <tag> 题解 </tag>
             
-            <tag> 思维 </tag>
-            
             <tag> 线段树 </tag>
+            
+            <tag> 思维 </tag>
             
             <tag> 逆序对 </tag>
             
