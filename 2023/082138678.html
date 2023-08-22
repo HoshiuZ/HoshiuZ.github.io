@@ -397,14 +397,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.3k
+                    1.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    7 分
                 </div>
                 
 
@@ -494,8 +494,68 @@ cdrom  home  lib64  media       proc  sbin  swapfile  usr<span aria-hidden="true
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~$ <span class="token function">ls</span> -l /home
 总计 <span class="token number">4</span>
 drwxr-x--- <span class="token number">16</span> hoshiuz hoshiuz <span class="token number">4096</span> Mar  <span class="token number">9</span> <span class="token number">20</span>:05 hoshiuz<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p><code>-l</code> 参数可以更加详细地列出目录下文件或文件夹的信息。最后一行中，第一个字符 <code>d</code> 表示 <code>hoshiuz</code> 是一个目录。然后接下来的九个字符，每三个字符构成一组（ rwx ），分别代表了文件所有者、用户组以及其他人所具有的权限，其中 <code>-</code> 表示该用户不具备相应的条件。可修改为 w ，可执行为 x ，可读为 r 。</p>
-
+<p><code>-l</code> 参数可以更加详细地列出目录下文件或文件夹的信息。最后一行中，第一个字符 <code>d</code> 表示 <code>hoshiuz</code> 是一个目录。然后接下来的九个字符，每三个字符构成一组（ rwx ），分别代表了文件所有者、用户组以及其他人所具有的权限，其中 <code>-</code> 表示该用户不具备相应的权限。可修改为 w ，可执行为 x ，可读为 r 。</p>
+<p>其他一些比较有用的命令：</p>
+<p><code>mv</code> 命令 （ move file ） ，用来为文件或目录改名、或将文件或目录移入其他位置。</p>
+<p>将 test.txt 重命名为 TEST.txt ：</p>
+<pre class="line-numbers language-SHELL" data-language="SHELL"><code class="language-SHELL">hoshiuz@HoshiuZ:~$ ls
+Desktop    Downloads  Pictures  snap       TEST.txt  workarea
+Documents  Music      Public    Templates  Videos
+hoshiuz@HoshiuZ:~$ mv TEST.txt test.txt
+hoshiuz@HoshiuZ:~$ ls
+Desktop    Downloads  Pictures  snap       test.txt  workarea
+Documents  Music      Public    Templates  Videos<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>将 test.txt 移入目录 Desktop 中：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~$ <span class="token function">mv</span> test.txt Desktop/
+hoshiuz@HoshiuZ:~$ <span class="token function">ls</span>
+Desktop    Downloads  Pictures  snap       Videos
+Documents  Music      Public    Templates  workarea
+hoshiuz@HoshiuZ:~$ <span class="token builtin class-name">cd</span> Desktop
+hoshiuz@HoshiuZ:~/Desktop$ <span class="token function">ls</span>
+test.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><code>cp</code> 命令 （ copy file ） ，主要用于复制文件或目录。</p>
+<p>将 test.txt 复制到 Desktop 的父目录中 ：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~/Desktop$ <span class="token function">cp</span> test.txt <span class="token punctuation">..</span>/
+hoshiuz@HoshiuZ:~/Desktop$ <span class="token function">ls</span>
+test.txt
+hoshiuz@HoshiuZ:~/Desktop$ <span class="token builtin class-name">cd</span> <span class="token punctuation">..</span>
+hoshiuz@HoshiuZ:~$ <span class="token function">ls</span>
+Desktop    Downloads  Pictures  snap       test.txt  workarea
+Documents  Music      Public    Templates  Videos
+hoshiuz@HoshiuZ:~$ <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>将 test.txt 复制到 Desktop 的父目录中并且名为 TEST.txt ：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~/Desktop$ <span class="token function">cp</span> test.txt <span class="token punctuation">..</span>/TEST.txt
+hoshiuz@HoshiuZ:~/Desktop$ <span class="token builtin class-name">cd</span> <span class="token punctuation">..</span>
+hoshiuz@HoshiuZ:~$ <span class="token function">ls</span>
+Desktop    Downloads  Pictures  snap       test.txt  Videos
+Documents  Music      Public    Templates  TEST.txt  workarea<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><code>rm</code> 命令 （ remove ），用于删除一个文件或者目录。</p>
+<p>删除当前目录中的 test.txt 与 TEST.txt 文件：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~$ <span class="token function">ls</span>
+Desktop    Downloads  Pictures  snap       test.txt  Videos
+Documents  Music      Public    Templates  TEST.txt  workarea
+hoshiuz@HoshiuZ:~$ <span class="token function">rm</span> test.txt
+hoshiuz@HoshiuZ:~$ <span class="token function">rm</span> TEST.txt
+hoshiuz@HoshiuZ:~$ <span class="token function">ls</span>
+Desktop    Downloads  Pictures  snap       Videos
+Documents  Music      Public    Templates  workarea<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>删除目录需要加 <code>-r</code> 参数：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~/Desktop$ <span class="token function">ls</span>
+<span class="token builtin class-name">test</span>
+hoshiuz@HoshiuZ:~/Desktop$ <span class="token function">rm</span> <span class="token builtin class-name">test</span>
+rm: 无法删除 <span class="token string">'test'</span><span class="token builtin class-name">:</span> 是一个目录
+hoshiuz@HoshiuZ:~/Desktop$ <span class="token function">rm</span> -r <span class="token builtin class-name">test</span>
+hoshiuz@HoshiuZ:~/Desktop$ <span class="token function">ls</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>类似的，有 <code>rmdir</code> 命令可以删除目录，但是其只可以删除空目录，这是一种安全机制。</p>
+<p><code>mkdir</code> 命令 （ make directory ） ，用于创建目录。</p>
+<p>创建目录 <code>my code</code> ：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~$ <span class="token function">mkdir</span> <span class="token string">"my code"</span>
+hoshiuz@HoshiuZ:~$ <span class="token function">ls</span>
+ Desktop     Downloads  <span class="token string">'my code'</span>   Public   Templates   workarea
+ Documents   Music       Pictures   snap     Videos<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p><code>man</code> 命令，后跟其他命令名称，可查询手册获取后跟命令的用法。</p>
+<p>快捷键 <code>ctrl+L</code> 可以清除终端并回到顶部。</p>
+<h2 id="在程序间创建连接"><a href="#在程序间创建连接" class="headerlink" title="在程序间创建连接"></a>在程序间创建连接</h2>
                 
             </div>
             <hr/>
@@ -916,7 +976,7 @@ drwxr-x--- <span class="token number">16</span> hoshiuz hoshiuz <span class="tok
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">55.3k</span>&nbsp;字
+                class="white-color">55.8k</span>&nbsp;字
             
             
             
