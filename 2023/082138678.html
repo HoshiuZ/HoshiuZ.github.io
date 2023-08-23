@@ -397,14 +397,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.8k
+                    2.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    10 分
                 </div>
                 
 
@@ -555,7 +555,37 @@ hoshiuz@HoshiuZ:~$ <span class="token function">ls</span>
  Documents   Music       Pictures   snap     Videos<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p><code>man</code> 命令，后跟其他命令名称，可查询手册获取后跟命令的用法。</p>
 <p>快捷键 <code>ctrl+L</code> 可以清除终端并回到顶部。</p>
-<h2 id="在程序间创建连接"><a href="#在程序间创建连接" class="headerlink" title="在程序间创建连接"></a>在程序间创建连接</h2>
+<h2 id="在程序间创建连接"><a href="#在程序间创建连接" class="headerlink" title="在程序间创建连接"></a>在程序间创建连接</h2><p>在 shell 中，程序有两个主要的“流”：它们的输入流和输出流。当程序尝试读取信息时，它们会从输入流中进行读取，当程序打印信息时，它们会将信息输出到输出流中。通常，一个程序的输入输出流都是终端，键盘作为输入，显示器作为输出。但是，也可以重定向这些流。</p>
+<p>最简单的重定向是 <code>&lt; file</code> 和 <code>&gt;file</code> 。这两个命令可以将程序的输入输出流分别重定向到文件：</p>
+<p><code>cat</code> 命令 （ concatenate ） 是一个打印文件内容的命令。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~$ <span class="token builtin class-name">echo</span> hello <span class="token operator">></span> hello.txt
+hoshiuz@HoshiuZ:~$ <span class="token function">cat</span> hello.txt
+hello<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>该例中，将内容 <code>hello</code> 输出到了 <code>hello.txt</code> 中，输出流重定向， <code>cat hello.txt</code> ，发现文件内容为 <code>hello</code> 。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~$ <span class="token function">cat</span> <span class="token operator">&lt;</span> hello.txt
+hello<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>该例中，输入流重定向为 <code>hello.txt</code> ，输出流没有重定向，所以输出在终端上为 <code>hello</code> 。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~$ <span class="token function">cat</span> <span class="token operator">&lt;</span> hello.txt <span class="token operator">></span> hello2.txt
+hoshiuz@HoshiuZ:~$ <span class="token function">cat</span> hello2.txt
+hello<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>该例中，输入流中定向为 <code>hello.txt</code> ，输出流重定向为 <code>hello2.txt</code> ，所以 <code>hello.txt</code> 的内容被打印到 <code>hello2.txt</code> 中。</p>
+<p><code>&gt;&gt;</code> 表示追加而不是覆盖。</p>
+<p>向 <code>hello2.txt</code> 中追加 <code>hellow.txt</code> 的内容：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~$ <span class="token function">cat</span> <span class="token operator">&lt;</span> hello.txt <span class="token operator">>></span> hello2.txt
+hoshiuz@HoshiuZ:~$ <span class="token function">cat</span> hello2.txt
+hello
+hello<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>管道（ pipes ） 运算符 <code>|</code> 的作用是将左边程序的输出作为右边程序的输入。</p>
+<p>获取 <code>ls -l /</code> 输出的最后一行：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~$ <span class="token function">ls</span> -l / <span class="token operator">|</span> <span class="token function">tail</span> -n1
+drwxr-xr-x  <span class="token number">14</span> root root       <span class="token number">4096</span> Feb <span class="token number">22</span> <span class="token number">22</span>:02 var<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><code>ls -l</code> 的输出为一系列文件信息，作为右边 <code>tial -n1</code> 的输入，<code>tail</code> 的输出未重定向，所以显示在终端上。当然也可以重定向其输出到一个文件中：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~$ <span class="token function">ls</span> -l / <span class="token operator">|</span> <span class="token function">tail</span> -n1 <span class="token operator">></span> ls.txt
+hoshiuz@HoshiuZ:~$ <span class="token function">cat</span> ls.txt
+drwxr-xr-x  <span class="token number">14</span> root root       <span class="token number">4096</span> Feb <span class="token number">22</span> <span class="token number">22</span>:02 var<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h2 id="一个功能全面又强大的工具"><a href="#一个功能全面又强大的工具" class="headerlink" title="一个功能全面又强大的工具"></a>一个功能全面又强大的工具</h2><p>对于大多数的类 Unix 系统，有一类用户是非常特殊的——根用户（ root user ） 。发现，在上面的输出结果中，根用户几乎不受任何限制，他可以创建、读取、更新和删除系统中的任何文件。通常我们并不会以根用户的身份直接登录系统，因为这样可能会因为某些错误的操作而破坏系统。取而代之的是我们会在需要的时候使用 <code>sudo</code> 命令。顾名思义，它的作用是可以以 su （ super user ） 的身份执行一些操作。当遇到拒绝访问 （ permission denied ）的错误时，通常是因为此时必须是根用户才能操作。</p>
+<p>由于我的虚拟机的目录 <code>/sys/class/backlight</code> 内啥也没有，所以课中的例子不再尝试。</p>
+<h2 id="课后练习"><a href="#课后练习" class="headerlink" title="课后练习"></a>课后练习</h2>
                 
             </div>
             <hr/>
@@ -976,7 +1006,7 @@ hoshiuz@HoshiuZ:~$ <span class="token function">ls</span>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">55.8k</span>&nbsp;字
+                class="white-color">56.5k</span>&nbsp;字
             
             
             
