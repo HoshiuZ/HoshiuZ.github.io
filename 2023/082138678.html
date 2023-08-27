@@ -397,14 +397,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.5k
+                    3.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    14 分
+                    15 分
                 </div>
                 
 
@@ -431,7 +431,7 @@
 <p><a target="_blank" rel="noopener" href="https://space.bilibili.com/518734451/channel/seriesdetail?sid=3320015">双语字幕课程</a></p>
 <p><a target="_blank" rel="noopener" href="https://missing-semester-cn.github.io/">中文课程讲义</a></p>
 <p>笔记内容多来自与课程视频与讲义。</p>
-<h1 id="主题-1-：-The-Shell"><a href="#主题-1-：-The-Shell" class="headerlink" title="主题 1 ： The Shell"></a>主题 1 ： The Shell</h1><p>使用环境： Linux 虚拟机终端。</p>
+<h1 id="第一讲-课程概览与-shell"><a href="#第一讲-课程概览与-shell" class="headerlink" title="第一讲 课程概览与 shell"></a>第一讲 课程概览与 shell</h1><p>使用环境： Linux 虚拟机终端。</p>
 <h2 id="shell-是什么"><a href="#shell-是什么" class="headerlink" title="shell 是什么"></a>shell 是什么</h2><p>几乎所有容易接触到的平台都支持某种形式的 shell ，有些甚至还提供了多种 shell 供选择。虽然它们之间有些细节上的差异，但是其核心功能都是一样的：它允许你执行程序，输入并获取某种半结构化的输出。</p>
 <h2 id="使用-shell"><a href="#使用-shell" class="headerlink" title="使用 shell"></a>使用 shell</h2><p>打开终端，看到一个提示符。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~$ <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -688,6 +688,18 @@ last-modified: Fri, <span class="token number">25</span> Aug <span class="token 
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~/tmp/missing$ ./semester <span class="token operator">|</span> <span class="token function">grep</span> last-modified <span class="token operator">></span> last-modified.txt
 hoshiuz@HoshiuZ:~/tmp/missing$ <span class="token function">cat</span> last-modified.txt
 last-modified: Fri, <span class="token number">25</span> Aug <span class="token number">2023</span> <span class="token number">21</span>:51:53 GMT<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<hr>
+<h1 id="第二讲-Shell-工具和脚本"><a href="#第二讲-Shell-工具和脚本" class="headerlink" title="第二讲 Shell 工具和脚本"></a>第二讲 Shell 工具和脚本</h1><h2 id="Shell-脚本"><a href="#Shell-脚本" class="headerlink" title="Shell 脚本"></a>Shell 脚本</h2><p>在 bash 中为变量赋值的语法是 <code>foo=bar</code> ，访问变量中存储的数值，其语法为 <code>$foo</code> 。需要注意的是， <code>foo = bar</code> （使用空格隔开） 是不能正确工作的，因为解释器会调用程序 <code>foo</code> 并将 <code>=</code> 和 <code>bar</code> 作为参数。在 shell 脚本中，使用空格会起到分割参数的作用，有时候会造成混淆 ：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~$ <span class="token assign-left variable">foo</span><span class="token operator">=</span>bar
+hoshiuz@HoshiuZ:~$ <span class="token builtin class-name">echo</span> <span class="token variable">$foo</span>
+bar
+hoshiuz@HoshiuZ:~$ foo <span class="token operator">=</span> bar
+找不到命令 “foo”<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>Bash 中的字符串通过 <code>&#39;</code> 和 <code>&quot;</code> 分隔符来定义，但是它们的含义并不相同。以 <code>&#39;</code> 定义的字符串为原义字符串，其中的变量不会被转义，而 <code>&quot;</code> 定义的字符串会将变量值进行替换 ：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~$ <span class="token builtin class-name">echo</span> <span class="token string">'$foo'</span>
+<span class="token variable">$foo</span>
+hoshiuz@HoshiuZ:~$ <span class="token builtin class-name">echo</span> <span class="token string">"<span class="token variable">$foo</span>"</span>
+bar<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -1109,7 +1121,7 @@ last-modified: Fri, <span class="token number">25</span> Aug <span class="token 
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">57.6k</span>&nbsp;字
+                class="white-color">57.8k</span>&nbsp;字
             
             
             
