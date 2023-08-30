@@ -397,14 +397,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.1k
+                    4.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    16 分
+                    20 分
                 </div>
                 
 
@@ -700,7 +700,7 @@ hoshiuz@HoshiuZ:~$ foo <span class="token operator">=</span> bar
 <span class="token variable">$foo</span>
 hoshiuz@HoshiuZ:~$ <span class="token builtin class-name">echo</span> <span class="token string">"<span class="token variable">$foo</span>"</span>
 bar<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>Bash 也可以进行流程控制，例如 <code>for</code> 循环、 <code>while</code> 循环。</p>
+<p>Bash 也可以进行流程控制，例如 <code>for, case, while, if</code> 。</p>
 <p>Bash 也支持函数，它可以接受参数并基于参数进行操作。</p>
 <p>在文件 <code>mcd.sh</code> 中写入</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function-name function">mcd</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -711,21 +711,91 @@ bar<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span>
 <p>该函数功能为创建一个目录并使用 <code>cd</code> 进入该目录。</p>
 <p>这里的 <code>$1</code> 是脚本的第一个参数。bash 使用了很多特殊的变量来表示参数、错误代码和相关变量。以下列举其中的一些变量，更完整的列表参见 <a target="_blank" rel="noopener" href="https://tldp.org/LDP/abs/html/special-chars.html">这里</a> 。</p>
 <ul>
-<li><p><code>$0</code> 脚本名。</p>
-</li>
-<li><p><code>$1</code> 到 <code>$9</code> 脚本的参数。 <code>$1</code> 是第一个参数，以此类推。</p>
-</li>
+<li><code>$0</code> 脚本名。</li>
+<li><code>$1</code> 到 <code>$9</code> 脚本的参数。 <code>$1</code> 是第一个参数，以此类推。</li>
 <li><code>$@</code> 所有参数。</li>
 <li><code>$?</code> 前一个命令的返回值。</li>
 <li>$$$$ 当前脚本的进程识别码。</li>
 <li><code>!!</code> 完整的上一条命令，包括参数。常见应用：当因权限不足执行命令失败时，可以使用 <code>sudo !!</code> 再试一次。</li>
 <li><code>$_</code> 上一条命令的最后一个参数。若使用的是交互式 <code>shell</code> ，则可以通过按下 <code>Ese</code> 之后键入 . 来获取这个值。</li>
+<li><code>$#</code> 传给脚本的参数个数。</li>
 </ul>
 <p>输入 <code>source mcd.sh</code> ，这会在 Shell 中加载并执行这个脚本，此后 Shell 中就已经定义了 <code>mcd</code> 函数，可以直接使用。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~$ <span class="token builtin class-name">source</span> mcd.sh
 hoshiuz@HoshiuZ:~$ mcd <span class="token builtin class-name">test</span>
 hoshiuz@HoshiuZ:~/test$<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>如上，发现已经创建了目录 <code>test</code> 并且进入了该目录。</p>
+<p>命令通常使用 <code>STDOUT</code> 来返回输出值，使用 <code>STDERR</code> 来返回错误及错误码，便于脚本以更加友好的方式来报告错误。返回码或退出状态是脚本/命令之间交流执行状态的方式。返回值 0 表示正常执行，其他所有非 0 的返回值都表示有错误发生。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~$ <span class="token builtin class-name">echo</span> <span class="token string">"hello"</span>
+hello
+hoshiuz@HoshiuZ:~$ <span class="token builtin class-name">echo</span> <span class="token variable">$?</span>
+<span class="token number">0</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>如上，因为上一条命令 <code>echo &quot;hello&quot;</code> 没有出错，所以返回值为 0 ，表示正常执行。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~$ <span class="token function">grep</span> foobar mcd.sh
+hoshiuz@HoshiuZ:~$ <span class="token builtin class-name">echo</span> <span class="token variable">$?</span>
+<span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><code>mcd.sh</code> 中没有字符串 foobar ，所以 <code>grep</code> 不会输出任何内容，但是会返回一个 1 的错误代码。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~$ <span class="token boolean">true</span>
+hoshiuz@HoshiuZ:~$ <span class="token builtin class-name">echo</span> <span class="token variable">$?</span>
+<span class="token number">0</span>
+hoshiuz@HoshiuZ:~$ <span class="token boolean">false</span>
+hoshiuz@HoshiuZ:~$ <span class="token builtin class-name">echo</span> <span class="token variable">$?</span>
+<span class="token number">1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>命令 <code>true</code> 的错误代码始终为 0 ，命令 <code>false</code> 的错误代码始终为 1 。</p>
+<p>退出码可以搭配 <code>&amp;&amp;</code> 和 <code>||</code> 使用（与操作符，或操作符），用来进行条件判断，决定是否执行其他程序。它们都属于短路运算符（ short-circuiting ） ，同一行的多个命令可以用 <code>;</code> 分隔。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~$ <span class="token boolean">false</span> <span class="token operator">||</span> <span class="token builtin class-name">echo</span> A
+A
+hoshiuz@HoshiuZ:~$ <span class="token boolean">true</span> <span class="token operator">||</span> <span class="token builtin class-name">echo</span> B
+hoshiuz@HoshiuZ:~$ <span class="token boolean">true</span> <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">echo</span> C
+C
+hoshiuz@HoshiuZ:~$ <span class="token boolean">false</span> <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">echo</span> D
+hoshiuz@HoshiuZ:~$ <span class="token boolean">true</span> <span class="token punctuation">;</span> <span class="token builtin class-name">echo</span> E
+E
+hoshiuz@HoshiuZ:~$ <span class="token boolean">false</span> <span class="token punctuation">;</span> <span class="token builtin class-name">echo</span> F
+F<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>如上。“短路运算符”， 所以当已经能确定当前表达式的返回值时，就不再向下执行。</p>
+<p>如何将命令的输出存储在一个变量里？这可以通过 命令替换（ command substitution ） 来实现。</p>
+<p>当通过 <code>$(CMD)</code> 这样的方式来执行 <code>CMD</code> 这个命令时，它的输出结果会替换掉 <code>$(CMD)</code> 。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~$ <span class="token builtin class-name">echo</span> <span class="token string">"We are now in <span class="token variable"><span class="token variable">$(</span><span class="token builtin class-name">pwd</span><span class="token variable">)</span></span>"</span>
+We are now <span class="token keyword">in</span> /home/hoshiuz<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>双引号，所以可以替换。</p>
+<p>据此，可以将命令的输出存储在变量里。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~$ <span class="token assign-left variable">directory</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token builtin class-name">pwd</span><span class="token variable">)</span></span>
+hoshiuz@HoshiuZ:~$ <span class="token builtin class-name">echo</span> <span class="token variable">$directory</span>
+/home/hoshiuz<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>如上，命令 <code>pwd</code> 的输出就被存储在变量 <code>directory</code> 中。</p>
+<p>进制替换（ process substitution ） ，<code>&lt;(CMD)</code> 会执行 <code>CMD</code> 并将结果输出到一个临时文件中，并将 <code>&lt;(CMD)</code> 替换成临时文件名。这在我们希望返回值通过文件而不是 <code>STDIN</code> 传递时很有用，如下例：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~$ <span class="token builtin class-name">echo</span> hello <span class="token operator">></span> <span class="token builtin class-name">test</span> 
+hoshiuz@HoshiuZ:~$ <span class="token builtin class-name">echo</span> Hello <span class="token operator">></span> TEST
+hoshiuz@HoshiuZ:~$ <span class="token function">diff</span> <span class="token operator">&lt;</span><span class="token punctuation">(</span><span class="token function">cat</span> <span class="token builtin class-name">test</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span><span class="token punctuation">(</span><span class="token function">cat</span> TEST<span class="token punctuation">)</span>
+1c1
+<span class="token operator">&lt;</span> hello
+---
+<span class="token operator">></span> Hello<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>一个脚本的例子（ <code>example.sh</code> ） ：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">echo</span> <span class="token string">"Starting program at <span class="token variable"><span class="token variable">$(</span><span class="token function">date</span><span class="token variable">)</span></span>"</span>
+<span class="token builtin class-name">echo</span> <span class="token string">"Running program <span class="token variable">$0</span> with <span class="token variable">$#</span> arguments with pid <span class="token variable">$$</span>"</span>
+<span class="token keyword">for</span> <span class="token for-or-select variable">file</span> <span class="token keyword">in</span> <span class="token string">"<span class="token variable">$@</span>"</span><span class="token punctuation">;</span> <span class="token keyword">do</span>
+        <span class="token function">grep</span> foobar <span class="token string">"<span class="token variable">$file</span>"</span> <span class="token operator">></span> /dev/null <span class="token operator"><span class="token file-descriptor important">2</span>></span> /dev/null
+        <span class="token comment"># 如果模式没有找到，则 grep 退出状态为 1</span>
+        <span class="token comment"># 将标准输出流和标准错误流重定向到 Null ，因为我们并不关心这些信息。</span>
+        <span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token string">"<span class="token variable">$?</span>"</span> -ne <span class="token number">0</span> <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span> 
+        <span class="token comment"># -ne ( not equal )</span>
+                <span class="token builtin class-name">echo</span> <span class="token string">"File <span class="token variable">$file</span> does not have any foobar, adding one"</span>
+                <span class="token builtin class-name">echo</span> <span class="token string">"# foobar"</span> <span class="token operator">>></span> <span class="token string">"<span class="token variable">$file</span>"</span>
+                <span class="token comment"># 如果没有找到 foobar ，则将其作为注释加到文件中</span>
+        <span class="token keyword">fi</span>
+<span class="token keyword">done</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>PID 表示进程标识符 （ Process Identifier ），每个运行中的进程都有一个唯一的 PID ，用于在操作系统中标识该进程。</p>
+<p>注意要向脚本添加可执行权限后才可以执行该脚本。</p>
+<p>运行示例：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~/course$ ./example.sh <span class="token builtin class-name">test</span> Test TEST
+Starting program at Wed Aug <span class="token number">30</span> <span class="token number">11</span>:28:15 AM CDT <span class="token number">2023</span>
+Running program ./example.sh with <span class="token number">3</span> arguments with pid <span class="token number">50691</span>
+File <span class="token builtin class-name">test</span> does not have any foobar, adding one<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>打开 <code>test</code> ，发现其末尾添加了 <code># foobar</code> 。</p>
+<p>有趣的是， <code>example.sh</code> 脚本本身也可以作为参数。</p>
+<p>在 bash 中进行比较时，尽量使用双方括号 <code>[[]]</code> 而不是单方括号 <code>[]</code> ，这样会降低犯错的几率，尽管这样并不能兼容 <code>sh</code> 。</p>
 
                 
             </div>
@@ -1147,7 +1217,7 @@ hoshiuz@HoshiuZ:~/test$<span aria-hidden="true" class="line-numbers-rows"><span>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">58.1k</span>&nbsp;字
+                class="white-color">59k</span>&nbsp;字
             
             
             
