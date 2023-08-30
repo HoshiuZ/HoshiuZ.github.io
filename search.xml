@@ -523,9 +523,9 @@
       
         <tags>
             
-            <tag> 字符串 </tag>
-            
             <tag> 学习笔记 </tag>
+            
+            <tag> 字符串 </tag>
             
             <tag> 字典树 </tag>
             
@@ -581,11 +581,11 @@
       
         <tags>
             
-            <tag> 练习 </tag>
-            
             <tag> 字符串 </tag>
             
             <tag> Manacher </tag>
+            
+            <tag> 练习 </tag>
             
         </tags>
       
@@ -610,11 +610,11 @@
       
         <tags>
             
+            <tag> 学习笔记 </tag>
+            
             <tag> 字符串 </tag>
             
             <tag> Manacher </tag>
-            
-            <tag> 学习笔记 </tag>
             
         </tags>
       
@@ -693,9 +693,9 @@
       
         <tags>
             
-            <tag> 字符串 </tag>
-            
             <tag> 学习笔记 </tag>
+            
+            <tag> 字符串 </tag>
             
             <tag> 哈希 </tag>
             
@@ -792,13 +792,13 @@
             
             <tag> 线段树 </tag>
             
-            <tag> DP </tag>
-            
             <tag> 模拟 </tag>
             
             <tag> 数学 </tag>
             
             <tag> 矩阵加速递推 </tag>
+            
+            <tag> DP </tag>
             
             <tag> 贪心 </tag>
             
@@ -1243,9 +1243,9 @@
             
             <tag> 题解 </tag>
             
-            <tag> SPFA </tag>
-            
             <tag> 二分答案 </tag>
+            
+            <tag> SPFA </tag>
             
         </tags>
       
