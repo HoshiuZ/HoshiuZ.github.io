@@ -397,14 +397,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.9k
+                    5.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    20 分
+                    24 分
                 </div>
                 
 
@@ -431,6 +431,7 @@
 <p><a target="_blank" rel="noopener" href="https://space.bilibili.com/518734451/channel/seriesdetail?sid=3320015">双语字幕课程</a></p>
 <p><a target="_blank" rel="noopener" href="https://missing-semester-cn.github.io/">中文课程讲义</a></p>
 <p>笔记内容多来自与课程视频与讲义。</p>
+<hr>
 <h1 id="第一讲-课程概览与-shell"><a href="#第一讲-课程概览与-shell" class="headerlink" title="第一讲 课程概览与 shell"></a>第一讲 课程概览与 shell</h1><p>使用环境： Linux 虚拟机终端。</p>
 <h2 id="shell-是什么"><a href="#shell-是什么" class="headerlink" title="shell 是什么"></a>shell 是什么</h2><p>几乎所有容易接触到的平台都支持某种形式的 shell ，有些甚至还提供了多种 shell 供选择。虽然它们之间有些细节上的差异，但是其核心功能都是一样的：它允许你执行程序，输入并获取某种半结构化的输出。</p>
 <h2 id="使用-shell"><a href="#使用-shell" class="headerlink" title="使用 shell"></a>使用 shell</h2><p>打开终端，看到一个提示符。</p>
@@ -796,7 +797,72 @@ File <span class="token builtin class-name">test</span> does not have any foobar
 <p>打开 <code>test</code> ，发现其末尾添加了 <code># foobar</code> 。</p>
 <p>有趣的是， <code>example.sh</code> 脚本本身也可以作为参数。</p>
 <p>在 bash 中进行比较时，尽量使用双方括号 <code>[[]]</code> 而不是单方括号 <code>[]</code> ，这样会降低犯错的几率，尽管这样并不能兼容 <code>sh</code> 。</p>
+<p>当执行脚本时，经常需要提供形式类似的参数， bash 可以轻松地实现这一操作，它可以基于文件扩展名展开表达式，这一技术被称为 shell 的通配（ globbing ） 。</p>
+<ul>
+<li><p>通配符：当想要利用通配符进行匹配时，可以分别使用 <code>?</code> 和 <code>*</code> 来匹配一个或任意个字符。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~/course$ <span class="token function">ls</span>
+bar  e.sh  example.sh  foo  foo1  foo10  foo2
+hoshiuz@HoshiuZ:~/course$ <span class="token function">rm</span> foo?
+hoshiuz@HoshiuZ:~/course$ <span class="token function">ls</span>
+bar  e.sh  example.sh  foo  foo10<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><code>?</code> 通配符匹配一个字符，所以 <code>foo10</code> 没有被删除。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~/course$ <span class="token function">ls</span>
+bar  e.sh  example.sh  foo  foo1  foo10  foo2
+hoshiuz@HoshiuZ:~/course$ <span class="token function">rm</span> foo*
+hoshiuz@HoshiuZ:~/course$ <span class="token function">ls</span>
+bar  e.sh  example.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><code>*</code> 通配符匹配任意个字符，所以 <code>foo</code> <code>foo1</code> <code>foo10</code> <code>foo2</code> 全被删除。</p>
+</li>
+<li><p>花括号 <code>&#123;&#125;</code> ：当有一系列指令，其中包含一段公共子串时，可以用花括号来自动展开这些命令。这在批量移动或者转换文件时非常方便。</p>
+<p>例如 <code>convert image.&#123;png,jpg&#125;</code> 会展开为 <code>convert image.png image.jpg</code> 。</p>
+<p>对多个大括号组成成的目录进行操作会对其笛卡尔积进行操作。</p>
+</li>
+</ul>
+<p>终端里也可以调用其他语言写的脚本。比如，这是一个 Python 脚本 <code>script.py</code> ：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#!/usr/bin/python3</span>
+<span class="token keyword">import</span> sys
+<span class="token keyword">for</span> arg <span class="token keyword">in</span> <span class="token builtin">reversed</span><span class="token punctuation">(</span>sys<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>arg<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>在终端中，可以用 <code>python3</code> 命令来使用该脚本：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~/course$ python3 script.py a b c
+c
+b
+a<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>同时也可以直接运行该脚本：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~/course$ ./script.py a b c
+c
+b
+a<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>这是因为该 Python 脚本的开头第一行的 <code>shebang</code> 。 <code>shebang</code> 展示的就是运行这个脚本的程序所在路径。</p>
+<p>但是并不是所有的机器的 python3 的位置都是一样的。所以可以使用 <code>env</code> 命令来提高脚本的可移植性，适用于大部分机器。<code>env</code> 会利用 <code>PATH</code> 环境变量来进行定位。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#!/usr/bin/env python3</span>
+<span class="token keyword">import</span> sys
+<span class="token keyword">for</span> arg <span class="token keyword">in</span> <span class="token builtin">reversed</span><span class="token punctuation">(</span>sys<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>arg<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>编写 <code>bash</code> 脚本有时候会很别扭和反直觉，像 shellcheck 这样的工具可以帮助你定位 sh/bash 脚本中的错误。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hoshiuz@HoshiuZ:~/course$ <span class="token function">shellcheck</span> example.sh
 
+In example.sh line <span class="token number">1</span>:
+<span class="token builtin class-name">echo</span> <span class="token string">"Starting program at <span class="token variable"><span class="token variable">$(</span><span class="token function">date</span><span class="token variable">)</span></span>"</span>
+^-- SC2148 <span class="token punctuation">(</span>error<span class="token punctuation">)</span>: Tips depend on target shell and yours is unknown. Add a shebang or a <span class="token string">'shell'</span> directive.
+
+
+In example.sh line <span class="token number">5</span>:
+	<span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token string">"<span class="token variable">$?</span>"</span> -ne <span class="token number">0</span> <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+              ^--^ SC2181 <span class="token punctuation">(</span>style<span class="token punctuation">)</span>: Check <span class="token builtin class-name">exit</span> code directly with e.g. <span class="token string">'if ! mycmd;'</span>, not indirectly with <span class="token variable">$?</span><span class="token builtin class-name">.</span>
+
+For <span class="token function">more</span> information:
+  https://www.shellcheck.net/wiki/SC2148 -- Tips depend on target shell and y<span class="token punctuation">..</span>.
+  https://www.shellcheck.net/wiki/SC2181 -- Check <span class="token builtin class-name">exit</span> code directly with e.g<span class="token punctuation">..</span>.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>如上，使用工具 shellcheck ，其指出了脚本 <code>example.sh</code> 中的一些问题。</p>
+<p>shell 函数和脚本有如下一些不同点：</p>
+<ul>
+<li>函数只能与 shell 使用相同的语言，脚本可以使用任意语言。因此在脚本中包含 <code>shebang</code> 是很重要的。</li>
+<li>函数尽在定义时被加载，脚本会在每次被执行时加载。这让函数的加载比脚本稍快一些，但是每次修改函数定义，都要重新加载一次。</li>
+<li>函数会在当前的 shell 环境中执行，脚本会在单独的进程中执行。因此，函数可以对环境变量进行修改，比如改变当前工作目录，脚本则不行。脚本需要使用 export 将环境变量导出，并将值传递给环境变量。</li>
+<li>与其他程序语言一样，函数可以提高代码模块性、代码复用性并创建清晰性的结构。shell 脚本中往往也会包含它们自己的函数定义。</li>
+</ul>
+<h2 id="shell-工具"><a href="#shell-工具" class="headerlink" title="shell 工具"></a>shell 工具</h2><h3 id="查看命令如何使用"><a href="#查看命令如何使用" class="headerlink" title="查看命令如何使用"></a>查看命令如何使用</h3>
                 
             </div>
             <hr/>
@@ -1217,7 +1283,7 @@ File <span class="token builtin class-name">test</span> does not have any foobar
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">59k</span>&nbsp;字
+                class="white-color">59.9k</span>&nbsp;字
             
             
             
