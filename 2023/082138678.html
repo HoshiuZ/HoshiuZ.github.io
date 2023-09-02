@@ -397,14 +397,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.8k
+                    6.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    24 分
+                    28 分
                 </div>
                 
 
@@ -862,7 +862,78 @@ For <span class="token function">more</span> information:
 <li>函数会在当前的 shell 环境中执行，脚本会在单独的进程中执行。因此，函数可以对环境变量进行修改，比如改变当前工作目录，脚本则不行。脚本需要使用 export 将环境变量导出，并将值传递给环境变量。</li>
 <li>与其他程序语言一样，函数可以提高代码模块性、代码复用性并创建清晰性的结构。shell 脚本中往往也会包含它们自己的函数定义。</li>
 </ul>
-<h2 id="shell-工具"><a href="#shell-工具" class="headerlink" title="shell 工具"></a>shell 工具</h2><h3 id="查看命令如何使用"><a href="#查看命令如何使用" class="headerlink" title="查看命令如何使用"></a>查看命令如何使用</h3>
+<h2 id="shell-工具"><a href="#shell-工具" class="headerlink" title="shell 工具"></a>shell 工具</h2><h3 id="查找文件"><a href="#查找文件" class="headerlink" title="查找文件"></a>查找文件</h3><p>可使用 <code>find</code> ， <code>fd</code> ， <code>locate</code>  等工具。</p>
+<h3 id="查找代码"><a href="#查找代码" class="headerlink" title="查找代码"></a>查找代码</h3><p>可使用 <code>grep</code> ， <code>ack</code> ， <code>ag</code> ， <code>rg</code> 等命令。</p>
+<h3 id="查找-shell-命令"><a href="#查找-shell-命令" class="headerlink" title="查找 shell 命令"></a>查找 shell 命令</h3><p>有时候可能想要找到之前输入过的某条命令。按向上的方向键会显示使用过的上一条命令，继续按上键则会遍历整个历史记录。</p>
+<p><code>history</code> 命令允许以程序员的方式来访问 shell 中输入的历史命令。这个命令会在标准输出中打印 shell 中的命令。如果需要搜索历史记录，则可以利用管道将输出结果传递给 <code>grep</code> 进行模式搜索。例如 <code>history | grep find</code> 会打印历史记录中包含 <code>find</code> 子串的命令。</p>
+<p>还可以使用快捷键 <code>ctrl+R</code> 对命令历史记录进行回溯搜索。按下后可以输入子串来进行匹配，查找历史命令行。反复按下就会在所有搜索结果中循环。</p>
+<h2 id="课后练习-1"><a href="#课后练习-1" class="headerlink" title="课后练习"></a>课后练习</h2><blockquote>
+<p>阅读 <a target="_blank" rel="noopener" href="https://man7.org/linux/man-pages/man1/ls.1.html"><code>man ls</code></a> ，然后使用<code>ls</code> 命令进行如下操作：</p>
+<ul>
+<li>所有文件（包括隐藏文件）</li>
+<li>文件打印以人类可以理解的格式输出 (例如，使用454M 而不是 454279954)</li>
+<li>文件以最近访问顺序排序</li>
+<li><p>以彩色文本显示输出结果</p>
+<p>典型输出如下：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">-rw-r--r--   <span class="token number">1</span> user group <span class="token number">1</span>.1M Jan <span class="token number">14</span> 09:53 baz
+drwxr-xr-x   <span class="token number">5</span> user group  <span class="token number">160</span> Jan <span class="token number">14</span> 09:53 <span class="token builtin class-name">.</span>
+-rw-r--r--   <span class="token number">1</span> user group  <span class="token number">514</span> Jan <span class="token number">14</span> 06:42 bar
+-rw-r--r--   <span class="token number">1</span> user group 106M Jan <span class="token number">13</span> <span class="token number">12</span>:12 foo
+drwx------+ <span class="token number">47</span> user group <span class="token number">1</span>.5K Jan <span class="token number">12</span> <span class="token number">18</span>:08 <span class="token punctuation">..</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ul>
+</blockquote>
+<p>分别为 ：</p>
+<ul>
+<li><code>ls -a</code> </li>
+<li><code>ls -h</code></li>
+<li><code>ls -t</code></li>
+<li><code>ls --color=auto</code> </li>
+</ul>
+<blockquote>
+<p>编写两个bash函数 <code>marco</code> 和 <code>polo</code> 执行下面的操作。 每当你执行 <code>marco</code> 时，当前的工作目录应当以某种形式保存，当执行 <code>polo</code> 时，无论现在处在什么目录下，都应当 <code>cd</code> 回到当时执行 <code>marco</code> 的目录。 为了方便debug，你可以把代码写在单独的文件 <code>marco.sh</code> 中，并通过 <code>source marco.sh</code>命令，（重新）加载函数。</p>
+</blockquote>
+<p>编写两个函数如下： </p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function-name function">marco</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token builtin class-name">echo</span> <span class="token string">"<span class="token variable"><span class="token variable">$(</span><span class="token builtin class-name">pwd</span><span class="token variable">)</span></span>"</span> <span class="token operator">></span> <span class="token environment constant">$HOME</span>/marco_history.log
+        <span class="token builtin class-name">echo</span> <span class="token string">"save pwd <span class="token variable"><span class="token variable">$(</span><span class="token builtin class-name">pwd</span><span class="token variable">)</span></span>"</span>
+<span class="token punctuation">&#125;</span>
+<span class="token function-name function">polo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token builtin class-name">cd</span> <span class="token string">"<span class="token variable"><span class="token variable">$(</span><span class="token function">cat</span> <span class="token string">"<span class="token environment constant">$HOME</span>/marco_history.log"</span><span class="token variable">)</span></span>"</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>或者可以使用 <code>export</code> 命令，将执行 <code>marco</code> 函数的当前目录存在一个变量内，然后 <code>polo</code> 直接 <code>cd</code> 这个变量：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function-name function">marco</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token builtin class-name">export</span> <span class="token assign-left variable">MARCO</span><span class="token operator">=</span><span class="token string">"<span class="token variable"><span class="token variable">$(</span><span class="token builtin class-name">pwd</span><span class="token variable">)</span></span>"</span>
+<span class="token punctuation">&#125;</span>
+<span class="token function-name function">polo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token builtin class-name">cd</span> <span class="token string">"<span class="token variable">$MARCO</span>"</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>假设您有一个命令，它很少出错。因此为了在出错时能够对其进行调试，需要花费大量的时间重现错误并捕获输出。 编写一段bash脚本，运行如下的脚本直到它出错，将它的标准输出和标准错误流记录到文件，并在最后输出所有内容。 加分项：报告脚本在失败前共运行了多少次。</p>
+  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/usr/bin/env bash</span>
+  
+<span class="token assign-left variable">n</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$((</span> RANDOM <span class="token operator">%</span> <span class="token number">100</span> <span class="token variable">))</span></span>
+  
+<span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> n -eq <span class="token number">42</span> <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>
+   <span class="token builtin class-name">echo</span> <span class="token string">"Something went wrong"</span>
+   <span class="token operator">></span><span class="token file-descriptor important">&amp;2</span> <span class="token builtin class-name">echo</span> <span class="token string">"The error was using magic numbers"</span>
+   <span class="token builtin class-name">exit</span> <span class="token number">1</span>
+<span class="token keyword">fi</span>
+  
+<span class="token builtin class-name">echo</span> <span class="token string">"Everything went according to plan"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<p>鸽一鸽。</p>
+<blockquote>
+<p> 本节课我们讲解的 <code>find</code> 命令中的 <code>-exec</code> 参数非常强大，它可以对我们查找的文件进行操作。但是，如果我们要对所有文件进行操作呢？例如创建一个zip压缩文件？我们已经知道，命令行可以从参数或标准输入接受输入。在用管道连接命令时，我们将标准输出和标准输入连接起来，但是有些命令，例如<code>tar</code> 则需要从参数接受输入。这里我们可以使用<a target="_blank" rel="noopener" href="https://man7.org/linux/man-pages/man1/xargs.1.html"><code>xargs</code></a> 命令，它可以使用标准输入中的内容作为参数。 例如 <code>ls | xargs rm</code> 会删除当前目录中的所有文件。</p>
+<p>  您的任务是编写一个命令，它可以递归地查找文件夹中所有的HTML文件，并将它们压缩成zip文件。注意，即使文件名中包含空格，您的命令也应该能够正确执行（提示：查看 <code>xargs</code>的参数<code>-d</code>，译注：MacOS 上的 <code>xargs</code>没有<code>-d</code>，<a target="_blank" rel="noopener" href="https://github.com/missing-semester/missing-semester/issues/93">查看这个issue</a>）</p>
+<p>  如果您使用的是 MacOS，请注意默认的 BSD <code>find</code> 与 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/List_of_GNU_Core_Utilities_commands">GNU coreutils</a> 中的是不一样的。你可以为<code>find</code>添加<code>-print0</code>选项，并为<code>xargs</code>添加<code>-0</code>选项。作为 Mac 用户，您需要注意 mac 系统自带的命令行工具和 GNU 中对应的工具是有区别的；如果你想使用 GNU 版本的工具，也可以使用 <a target="_blank" rel="noopener" href="https://formulae.brew.sh/formula/coreutils">brew 来安装</a>。</p>
+</blockquote>
+<p>鸽一鸽。</p>
+<blockquote>
+<p>（进阶）编写一个命令或脚本递归的查找文件夹中最近使用的文件。更通用的做法，你可以按照最近的使用时间列出文件吗？</p>
+</blockquote>
+<p>鸽一鸽。</p>
+
                 
             </div>
             <hr/>
@@ -1283,7 +1354,7 @@ For <span class="token function">more</span> information:
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">59.9k</span>&nbsp;字
+                class="white-color">61k</span>&nbsp;字
             
             
             
