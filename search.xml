@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>23.09.10 训练（22年西安区域赛）</title>
+      <link href="/2023/091131756.html"/>
+      <url>/2023/091131756.html</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://codeforces.com/gym/104077">Dashboard - The 2022 ICPC Asia Xian Regional Contest - Codeforces</a></p><h1 id="J"><a href="#J" class="headerlink" title="J"></a>J</h1><p>没看懂题。</p><p>wjh 说直接输出最大的两个数分别与 $0$ 取 $\max$ 的和，打完过了。</p><hr><h1 id="F"><a href="#F" class="headerlink" title="F"></a>F</h1><p>首先判断 $2$ 个单人间价格是否小于 $1$ 个双人间，如果是直接每个人一个单人间即可。</p><p>不是的话，那么肯定是能买双人间就买双人间，注意一个人也可以住双人间，所以需要比较一下。</p><hr><h1 id="C"><a href="#C" class="headerlink" title="C"></a>C</h1><p>都是复制后再出题。</p><p>所以考虑一直复制，每复制一次求一下当前人数出完题的时间 + 复制出当前人数的时间，取 $\min$ 。</p><p>时间复杂度 $O(T\log c)$ 。</p><hr><h1 id="G"><a href="#G" class="headerlink" title="G"></a>G</h1><p>字符串，不会。</p><p>wjh 写的。</p><hr><h1 id="E"><a href="#E" class="headerlink" title="E"></a>E</h1><p>hx 想到可以累加除以 $3$ 的余数求出 $f(x)$ 值，进而想到了构造 $3$ 进制，被 wjh 用神奇的构造方法弄过去了。</p><p>打完这题就去 sb 晚点名了。</p><hr><h1 id="补-L"><a href="#补-L" class="headerlink" title="补 L"></a>补 L</h1><p>晚点名的时候 wjh 想到了做法。</p><p>记进行 $x$ 次删掉当前所有叶子结点的操作后，还有 $y$ 个叶子结点。，</p><p>一直删掉叶子结点，过程中 $x+y$ 的最小值即为答案。</p><p>回去后我敲了一下敲锅了，第二天才发现少取了一次 $\min$ 。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> ACM </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 补题 </tag>
+            
+            <tag> 训练 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>The Missing Semester of Your CS Education 课程笔记</title>
       <link href="/2023/082138678.html"/>
       <url>/2023/082138678.html</url>
