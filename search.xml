@@ -8,7 +8,7 @@
       <link href="/2023/092743604.html"/>
       <url>/2023/092743604.html</url>
       
-        <content type="html"><![CDATA[<p><a href="https://codeforces.com/contest/1878">CF900.DIV3</a></p><h1 id="A"><a href="#A" class="headerlink" title="A"></a>A</h1><p>只需判断数组中是否有 $k$ 即可。</p><hr><h1 id="B"><a href="#B" class="headerlink" title="B"></a>B</h1><p>有很多构造方法。</p><p>我的是 </p><script type="math/tex; mode=display">a_n=3n+2</script><p>还可以直接输出奇数。</p><hr><h1 id="补C"><a href="#补C" class="headerlink" title="补C"></a>补C</h1><p>卡在这题上了，太 sb 了。</p><p>有点困，交了几发二分没过后就上床准备睡觉了。</p><p>上床了突然意识到，在和的最小值 $L$ 和最大值 $R$ 之间的值都可以取到。</p><p>难绷。</p><hr><h1 id="补D"><a href="#补D" class="headerlink" title="补D"></a>补D</h1><p>$k$ 个区间不相互影响，且首尾相连，所以也就是分成了 $k$ 段。</p><p>而且每个反转的区间都是在相应的段中对称的。</p><p>所以对于每次反转，直接差分，最后求前缀和得到每个位置被反转的次数，接着一段一段处理，如果该位置被反转了奇数次就将其与在段中与其中心对称的位置交换一下。</p><p>时间复杂度 $O(n)$ 。</p><hr><h1 id="补E"><a href="#补E" class="headerlink" title="补E"></a>补E</h1><p>赛时读了一下题，感觉不好做，就没想。</p><p>第二天才发现读错题了，是 与 而不是 异或。</p><p>是 与 的话就好搞了，因为与操作后的值肯定越来越小，具有单调性，所以可以考虑二分。</p><p>对每一位 $i$ 统计 $1$ 的个数，如果当前 <code>check</code> 的区间内 $1$ 的个数等于区间长度，就把值加上 $2^i$ 。</p><p>时间复杂度 $O(32\times q\log n)$ 。</p>]]></content>
+        <content type="html"><![CDATA[<p><a href="https://codeforces.com/contest/1878">CF900.DIV3</a></p><h1 id="A"><a href="#A" class="headerlink" title="A"></a>A</h1><p>只需判断数组中是否有 $k$ 即可。</p><hr><h1 id="B"><a href="#B" class="headerlink" title="B"></a>B</h1><p>有很多构造方法。</p><p>我的是 </p><script type="math/tex; mode=display">a_n=3n+2</script><p>还可以直接输出奇数。</p><hr><h1 id="补C"><a href="#补C" class="headerlink" title="补C"></a>补C</h1><p>卡在这题上了，太 sb 了。</p><p>有点困，交了几发二分没过后就上床准备睡觉了。</p><p>上床了突然意识到，在和的最小值 $L$ 和最大值 $R$ 之间的值都可以取到。</p><p>难绷。</p><hr><h1 id="补D"><a href="#补D" class="headerlink" title="补D"></a>补D</h1><p>$k$ 个区间不相互影响，且首尾相连，所以也就是分成了 $k$ 段。</p><p>而且每个反转的区间都是在相应的段中对称的。</p><p>所以对于每次反转，直接差分，最后求前缀和得到每个位置被反转的次数，接着一段一段处理，如果该位置被反转了奇数次就将其与在段中与其中心对称的位置交换一下。</p><p>时间复杂度 $O(n)$ 。</p><hr><h1 id="补E"><a href="#补E" class="headerlink" title="补E"></a>补E</h1><p>赛时读了一下题，感觉不好做，就没想。</p><p>第二天才发现读错题了，是 与 而不是 异或。</p><p>是 与 的话就好搞了，因为与操作后的值肯定越来越小，具有单调性，所以可以考虑二分。</p><p>对每一位 $i$ 统计 $1$ 的个数，如果当前 <code>check</code> 的区间内 $1$ 的个数等于区间长度，就把值加上 $2^i$ 。</p><p>时间复杂度 $O(32\times q\log n)$ 。</p><hr><h1 id="补F"><a href="#补F" class="headerlink" title="补F"></a>补F</h1><p>由于 $d(n)$ 为积性函数，所以 $\gcd(a,n)=1$ 且 $d(n\times a)=n$ 即为</p><script type="math/tex; mode=display">d(a)=\dfrac{n}{d(n)}</script><p>所以即判断是否有 $d(n)|n$ .</p><p>注意到 $q$ 十分小，只有 $1000$ ，所以对每次操作直接暴力分解质因数来求出新的因数个数 $d(n)$ ，再把 $d(n)$ 分解质因数判断每个质因数的指数是否都小于 $n$ 中相应的指数即可。</p><p>注意不能动态维护 $n$ 再取模判断，因为过程中 $n$ 会很大。</p>]]></content>
       
       
       <categories>
@@ -925,13 +925,13 @@
             
             <tag> 线段树 </tag>
             
-            <tag> DP </tag>
-            
             <tag> 模拟 </tag>
             
             <tag> 数学 </tag>
             
             <tag> 矩阵加速递推 </tag>
+            
+            <tag> DP </tag>
             
             <tag> 贪心 </tag>
             

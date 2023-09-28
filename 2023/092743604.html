@@ -393,7 +393,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    341
+                    476
                 </div>
                 
 
@@ -446,6 +446,12 @@ a_n=3n+2</script><p>还可以直接输出奇数。</p>
 <p>是 与 的话就好搞了，因为与操作后的值肯定越来越小，具有单调性，所以可以考虑二分。</p>
 <p>对每一位 $i$ 统计 $1$ 的个数，如果当前 <code>check</code> 的区间内 $1$ 的个数等于区间长度，就把值加上 $2^i$ 。</p>
 <p>时间复杂度 $O(32\times q\log n)$ 。</p>
+<hr>
+<h1 id="补F"><a href="#补F" class="headerlink" title="补F"></a>补F</h1><p>由于 $d(n)$ 为积性函数，所以 $\gcd(a,n)=1$ 且 $d(n\times a)=n$ 即为</p>
+<script type="math/tex; mode=display">
+d(a)=\dfrac{n}{d(n)}</script><p>所以即判断是否有 $d(n)|n$ .</p>
+<p>注意到 $q$ 十分小，只有 $1000$ ，所以对每次操作直接暴力分解质因数来求出新的因数个数 $d(n)$ ，再把 $d(n)$ 分解质因数判断每个质因数的指数是否都小于 $n$ 中相应的指数即可。</p>
+<p>注意不能动态维护 $n$ 再取模判断，因为过程中 $n$ 会很大。</p>
 
                 
             </div>
@@ -859,7 +865,7 @@ a_n=3n+2</script><p>还可以直接输出奇数。</p>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">62.4k</span>&nbsp;字
+                class="white-color">62.5k</span>&nbsp;字
             
             
             
