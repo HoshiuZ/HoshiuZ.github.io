@@ -4,6 +4,141 @@
   
     
     <entry>
+      <title>23.10.14训练</title>
+      <link href="/2023/101510971.html"/>
+      <url>/2023/101510971.html</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://codeforces.com/gym/104008">22CCPC桂林</a></p><hr><h1 id="M"><a href="#M" class="headerlink" title="M"></a>M</h1><p>逆序对+双端队列。</p><p>一开始以为要用值域线段树来动态维护，线段树都写完了突然发现由于是个 $1\sim n$ 的排列，所以并不需要。但是还是要先求出初始的逆序对数。</p><p>求出后，维护一个双端队列，每次根据是否翻转次数取出队头/队尾来计算其对答案的影响即可。</p><p>时间复杂度 $O(n\log n)$ 。</p><hr><h1 id="E"><a href="#E" class="headerlink" title="E"></a>E</h1><p>扩欧。</p><p><code>humblerats</code> 推出来一个式子，是一个同余方程，然后我套了个扩欧，就能得出结果。</p><hr><h1 id="C"><a href="#C" class="headerlink" title="C"></a>C</h1><p>想了半天，只发现了如果在第 $i$ 次执行了第二种操作，那么第 $i$ 次之前的操作都是无关紧要的。</p><p>后来 <code>dreamskycx</code> 发现答案只有两种，取较大值即可。</p><hr><h1 id="L"><a href="#L" class="headerlink" title="L"></a>L</h1><p>赛后补的。</p><p>直接贴个题解。</p><p><img src="/2023/101510971/L.png" alt></p><hr><h1 id="G"><a href="#G" class="headerlink" title="G"></a>G</h1><p>赛后补的。</p><p>换根DP 。</p><p>只有两种情况，一种是两条路径没有交点，另一种是两条路径只有一个交点。</p><p>两种情况都需要用换根DP来求。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> ACM </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 补题 </tag>
+            
+            <tag> 训练 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>23.10.06训练</title>
+      <link href="/2023/10069785.html"/>
+      <url>/2023/10069785.html</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://codeforces.com/gym/103427">21沈阳区域赛</a></p><hr><h1 id="F"><a href="#F" class="headerlink" title="F"></a>F</h1><p>把所有前缀转化后的结果取 $\max$ 即可。</p><hr><h1 id="B"><a href="#B" class="headerlink" title="B"></a>B</h1><p>发现每一位的异或操作是不会影响的。</p><p>所以做 $30$ 次 dfs ，然后统计更小的贡献即可。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> ACM </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 补题 </tag>
+            
+            <tag> 训练 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>23.10.05训练</title>
+      <link href="/2023/10059738.html"/>
+      <url>/2023/10059738.html</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://codeforces.com/gym/104076">22济南区域赛</a></p><hr><h1 id="A"><a href="#A" class="headerlink" title="A"></a>A</h1><p>寒假做过。</p><hr><h1 id="M"><a href="#M" class="headerlink" title="M"></a>M</h1><p>顺序不影响进位次数，所以直接模拟即可。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> ACM </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 补题 </tag>
+            
+            <tag> 训练 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>23.10.02训练</title>
+      <link href="/2023/100259004.html"/>
+      <url>/2023/100259004.html</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://codeforces.com/gym/104128">22南京区域赛</a></p><hr><h1 id="A"><a href="#A" class="headerlink" title="A"></a>A</h1><p>寒假做过。</p><hr><h1 id="D"><a href="#D" class="headerlink" title="D"></a>D</h1><p>二分答案。</p><p>加的是一个公差大于等于 $0$ 的等差数列，所以对于一个值 $val$ ，每个位置上的数都可以计算出其加上等差数列后第一次大于 $val$ 时等差数列的起点在哪，据此可以写出个 $O(n)$ 的 check ，总时间复杂度 $O(n\log V)$ 。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> ACM </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 补题 </tag>
+            
+            <tag> 训练 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>23.09.30训练</title>
+      <link href="/2023/093057547.html"/>
+      <url>/2023/093057547.html</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://codeforces.com/gym/104160">22沈阳区域赛</a></p><hr><h1 id="D"><a href="#D" class="headerlink" title="D"></a>D</h1><p>签到，输出赢三次的队即可。</p><hr><h1 id="C"><a href="#C" class="headerlink" title="C"></a>C</h1><p>首先区间一定越大越好，所以区间长度直接取 $d$ 。</p><p>这样就只需要枚举一个端点。</p><p>$l$ 或 $r$ 一定是 $a_i$ 中的一个，于是 $O(n^2)$ 枚举即可。</p><hr><h1 id="L"><a href="#L" class="headerlink" title="L"></a>L</h1><p>很长时间才发现题目理解错了，没打过炉石。</p><p>题意理解对了直接 dfs 即可。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> ACM </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 补题 </tag>
+            
+            <tag> 训练 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>CF900.Div3</title>
       <link href="/2023/092743604.html"/>
       <url>/2023/092743604.html</url>
@@ -656,9 +791,9 @@
       
         <tags>
             
-            <tag> 学习笔记 </tag>
-            
             <tag> 字符串 </tag>
+            
+            <tag> 学习笔记 </tag>
             
             <tag> 字典树 </tag>
             
@@ -714,11 +849,11 @@
       
         <tags>
             
+            <tag> 练习 </tag>
+            
             <tag> 字符串 </tag>
             
             <tag> Manacher </tag>
-            
-            <tag> 练习 </tag>
             
         </tags>
       
@@ -743,11 +878,11 @@
       
         <tags>
             
-            <tag> 学习笔记 </tag>
-            
             <tag> 字符串 </tag>
             
             <tag> Manacher </tag>
+            
+            <tag> 学习笔记 </tag>
             
         </tags>
       
@@ -826,9 +961,9 @@
       
         <tags>
             
-            <tag> 学习笔记 </tag>
-            
             <tag> 字符串 </tag>
+            
+            <tag> 学习笔记 </tag>
             
             <tag> 哈希 </tag>
             
