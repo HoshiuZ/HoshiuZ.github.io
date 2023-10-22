@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>CF905.Div3</title>
+      <link href="/2023/102265364.html"/>
+      <url>/2023/102265364.html</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://codeforces.com/contest/1883">CF905.Div3</a></p><hr><h1 id="A"><a href="#A" class="headerlink" title="A"></a>A</h1><p>模拟。</p><p>直接按顺序来按即可，答案即为每个数字的位置之差加 $4$ 。</p><hr><h1 id="B"><a href="#B" class="headerlink" title="B"></a>B</h1><p>回文串，所以有两种情况，一种是所有字母的个数都是偶数，另一种是一种字母个数是奇数，其余字母个数都是偶数。</p><p>所以只需要统计字母输出出现的次数，若出现奇数次数的字母有 $x$ 种，当 $k&gt;x$ 时直接一定能构成回文串，否则当 $k=x$ 或 $x-k=1$ 时一定能构成回文串，否则就不能构成回文串。</p><hr><h1 id="C"><a href="#C" class="headerlink" title="C"></a>C</h1><p>发现 $k$ 相当小，只有 $2,3,4,5$ 。</p><p>当为 $2,3,5$ 时，由于是质数，所以只需遍历每个数取最小的加到 $k$ 的倍数的步数即可。</p><p>为 $4$ 时，有两种情况，一种是 $2\times 2$ ，另一种是 $4$ ，统计数中偶数的个数以及 $4$ 的倍数的个数来判断即可。</p><hr><h1 id="D"><a href="#D" class="headerlink" title="D"></a>D</h1><p>写了两个权值线段树。</p><p>一个维护左端点，另一个维护右端点。</p><p>然后对于每次询问，查找右端点线段树中最左边的位置 $pos$ ，然后查找一下左端点线段树在 $pos\sim m$ 内有没有值即可。</p><p>时间复杂度 $O(q\log q)$ ，需要离散化。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> ACM </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 补题 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>CF904.Div2</title>
+      <link href="/2023/102261076.html"/>
+      <url>/2023/102261076.html</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://codeforces.com/contest/1884">CF904.Div2</a></p><hr><h1 id="A"><a href="#A" class="headerlink" title="A"></a>A</h1><p>暴力。</p><p>签到，发现 $k$ 很小只有 $10$ ，所以直接暴力往后加直到是 $k$ 的倍数即可。</p><hr><h1 id="B"><a href="#B" class="headerlink" title="B"></a>B</h1><p>双指针。</p><p>记录最后一个 $1$ 的位置和这个位置之前的第一个 $0$ 的位置，那么每次对答案的贡献就是这两个位置之差，用双指针来维护这两个位置即可。</p><p>时间复杂度 $O(n)$ 。</p><hr><h1 id="C"><a href="#C" class="headerlink" title="C"></a>C</h1><p>差分+贪心。</p><p>容易想到，只需要关注 $1$ 和 $m$ 这两个特殊位置即可。</p><p>两个集合，一个是左端点大于 $1$ 的区间，另一个是右端点小于 $m$ 的区间，对两个集合内的区间进行操作（用差分）取最大值即可。</p><p>需要离散化，时间复杂度 $O(n\log n)$ 。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> ACM </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 补题 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>23.10.14训练</title>
       <link href="/2023/101510971.html"/>
       <url>/2023/101510971.html</url>
@@ -791,9 +841,9 @@
       
         <tags>
             
-            <tag> 字符串 </tag>
-            
             <tag> 学习笔记 </tag>
+            
+            <tag> 字符串 </tag>
             
             <tag> 字典树 </tag>
             
@@ -849,11 +899,11 @@
       
         <tags>
             
-            <tag> 练习 </tag>
-            
             <tag> 字符串 </tag>
             
             <tag> Manacher </tag>
+            
+            <tag> 练习 </tag>
             
         </tags>
       
@@ -878,11 +928,11 @@
       
         <tags>
             
+            <tag> 学习笔记 </tag>
+            
             <tag> 字符串 </tag>
             
             <tag> Manacher </tag>
-            
-            <tag> 学习笔记 </tag>
             
         </tags>
       
@@ -961,9 +1011,9 @@
       
         <tags>
             
-            <tag> 字符串 </tag>
-            
             <tag> 学习笔记 </tag>
+            
+            <tag> 字符串 </tag>
             
             <tag> 哈希 </tag>
             
@@ -1060,13 +1110,13 @@
             
             <tag> 线段树 </tag>
             
+            <tag> DP </tag>
+            
             <tag> 模拟 </tag>
             
             <tag> 数学 </tag>
             
             <tag> 矩阵加速递推 </tag>
-            
-            <tag> DP </tag>
             
             <tag> 贪心 </tag>
             

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="23.10.14训练, HoshiuZ&#39;s Blog">
+    <meta name="keywords" content="CF905.Div3, HoshiuZ&#39;s Blog">
     <meta name="description" content="Welcome to HoshiuZ&#39;s Blog">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>23.10.14训练 | HoshiuZ&#39;s Blog</title>
+    <title>CF905.Div3 | HoshiuZ&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -238,12 +238,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/24.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">23.10.14训练</h1>
+                    <h1 class="description center-align post-title">CF905.Div3</h1>
                 </div>
             </div>
         </div>
@@ -363,10 +363,6 @@
                                 <span class="chip bg-color">补题</span>
                             </a>
                         
-                            <a href="/tags/%E8%AE%AD%E7%BB%83/">
-                                <span class="chip bg-color">训练</span>
-                            </a>
-                        
                     </div>
                     
                 </div>
@@ -388,7 +384,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-10-15
+                    2023-10-22
                 </div>
                 
 
@@ -397,7 +393,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    270
+                    325
                 </div>
                 
 
@@ -427,27 +423,22 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><a target="_blank" rel="noopener" href="https://codeforces.com/gym/104008">22CCPC桂林</a></p>
+                <p><a target="_blank" rel="noopener" href="https://codeforces.com/contest/1883">CF905.Div3</a></p>
 <hr>
-<h1 id="M"><a href="#M" class="headerlink" title="M"></a>M</h1><p>逆序对+双端队列。</p>
-<p>一开始以为要用值域线段树来动态维护，线段树都写完了突然发现由于是个 $1\sim n$ 的排列，所以并不需要。但是还是要先求出初始的逆序对数。</p>
-<p>求出后，维护一个双端队列，每次根据是否翻转次数取出队头/队尾来计算其对答案的影响即可。</p>
-<p>时间复杂度 $O(n\log n)$ 。</p>
+<h1 id="A"><a href="#A" class="headerlink" title="A"></a>A</h1><p>模拟。</p>
+<p>直接按顺序来按即可，答案即为每个数字的位置之差加 $4$ 。</p>
 <hr>
-<h1 id="E"><a href="#E" class="headerlink" title="E"></a>E</h1><p>扩欧。</p>
-<p><code>humblerats</code> 推出来一个式子，是一个同余方程，然后我套了个扩欧，就能得出结果。</p>
+<h1 id="B"><a href="#B" class="headerlink" title="B"></a>B</h1><p>回文串，所以有两种情况，一种是所有字母的个数都是偶数，另一种是一种字母个数是奇数，其余字母个数都是偶数。</p>
+<p>所以只需要统计字母输出出现的次数，若出现奇数次数的字母有 $x$ 种，当 $k&gt;x$ 时直接一定能构成回文串，否则当 $k=x$ 或 $x-k=1$ 时一定能构成回文串，否则就不能构成回文串。</p>
 <hr>
-<h1 id="C"><a href="#C" class="headerlink" title="C"></a>C</h1><p>想了半天，只发现了如果在第 $i$ 次执行了第二种操作，那么第 $i$ 次之前的操作都是无关紧要的。</p>
-<p>后来 <code>dreamskycx</code> 发现答案只有两种，取较大值即可。</p>
+<h1 id="C"><a href="#C" class="headerlink" title="C"></a>C</h1><p>发现 $k$ 相当小，只有 $2,3,4,5$ 。</p>
+<p>当为 $2,3,5$ 时，由于是质数，所以只需遍历每个数取最小的加到 $k$ 的倍数的步数即可。</p>
+<p>为 $4$ 时，有两种情况，一种是 $2\times 2$ ，另一种是 $4$ ，统计数中偶数的个数以及 $4$ 的倍数的个数来判断即可。</p>
 <hr>
-<h1 id="L"><a href="#L" class="headerlink" title="L"></a>L</h1><p>赛后补的。</p>
-<p>直接贴个题解。</p>
-<p><img src="/2023/101510971/L.png" alt></p>
-<hr>
-<h1 id="G"><a href="#G" class="headerlink" title="G"></a>G</h1><p>赛后补的。</p>
-<p>换根DP 。</p>
-<p>只有两种情况，一种是两条路径没有交点，另一种是两条路径只有一个交点。</p>
-<p>两种情况都需要用换根DP来求。</p>
+<h1 id="D"><a href="#D" class="headerlink" title="D"></a>D</h1><p>写了两个权值线段树。</p>
+<p>一个维护左端点，另一个维护右端点。</p>
+<p>然后对于每次询问，查找右端点线段树中最左边的位置 $pos$ ，然后查找一下左端点线段树在 $pos\sim m$ 内有没有值即可。</p>
+<p>时间复杂度 $O(q\log q)$ ，需要离散化。</p>
 
                 
             </div>
@@ -474,7 +465,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://hoshiuz.github.io/2023/101510971.html">http://hoshiuz.github.io/2023/101510971.html</a>
+                    <a href="http://hoshiuz.github.io/2023/102265364.html">http://hoshiuz.github.io/2023/102265364.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -514,10 +505,6 @@
                             
                                 <a href="/tags/%E8%A1%A5%E9%A2%98/">
                                     <span class="chip bg-color">补题</span>
-                                </a>
-                            
-                                <a href="/tags/%E8%AE%AD%E7%BB%83/">
-                                    <span class="chip bg-color">训练</span>
                                 </a>
                             
                         </div>
@@ -561,29 +548,30 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/102261076.html">
+                <a href="/2023/102265364.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="CF904.Div2">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="CF905.Div3">
                         
-                        <span class="card-title">CF904.Div2</span>
+                        <span class="card-title">CF905.Div3</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            因为周点名没打，后来补的。
+                            打不了Div2 T_T
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-10-22
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-10-22
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -596,6 +584,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -614,24 +603,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/10069785.html">
+                <a href="/2023/102261076.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="23.10.06训练">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="CF904.Div2">
                         
-                        <span class="card-title">23.10.06训练</span>
+                        <span class="card-title">CF904.Div2</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            训练
+                            因为周点名没打，后来补的。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-10-06
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-10-22
                             </span>
                         <span class="publish-author">
                             
@@ -650,10 +639,6 @@
                     
                     <a href="/tags/%E8%A1%A5%E9%A2%98/">
                         <span class="chip bg-color">补题</span>
-                    </a>
-                    
-                    <a href="/tags/%E8%AE%AD%E7%BB%83/">
-                        <span class="chip bg-color">训练</span>
                     </a>
                     
                 </div>
