@@ -8,7 +8,7 @@
       <link href="/2023/102265364.html"/>
       <url>/2023/102265364.html</url>
       
-        <content type="html"><![CDATA[<p><a href="https://codeforces.com/contest/1883">CF905.Div3</a></p><hr><h1 id="A"><a href="#A" class="headerlink" title="A"></a>A</h1><p>模拟。</p><p>直接按顺序来按即可，答案即为每个数字的位置之差加 $4$ 。</p><hr><h1 id="B"><a href="#B" class="headerlink" title="B"></a>B</h1><p>回文串，所以有两种情况，一种是所有字母的个数都是偶数，另一种是一种字母个数是奇数，其余字母个数都是偶数。</p><p>所以只需要统计字母输出出现的次数，若出现奇数次数的字母有 $x$ 种，当 $k&gt;x$ 时直接一定能构成回文串，否则当 $k=x$ 或 $x-k=1$ 时一定能构成回文串，否则就不能构成回文串。</p><hr><h1 id="C"><a href="#C" class="headerlink" title="C"></a>C</h1><p>发现 $k$ 相当小，只有 $2,3,4,5$ 。</p><p>当为 $2,3,5$ 时，由于是质数，所以只需遍历每个数取最小的加到 $k$ 的倍数的步数即可。</p><p>为 $4$ 时，有两种情况，一种是 $2\times 2$ ，另一种是 $4$ ，统计数中偶数的个数以及 $4$ 的倍数的个数来判断即可。</p><hr><h1 id="D"><a href="#D" class="headerlink" title="D"></a>D</h1><p>写了两个权值线段树。</p><p>一个维护左端点，另一个维护右端点。</p><p>然后对于每次询问，查找右端点线段树中最左边的位置 $pos$ ，然后查找一下左端点线段树在 $pos\sim m$ 内有没有值即可。</p><p>时间复杂度 $O(q\log q)$ ，需要离散化。</p>]]></content>
+        <content type="html"><![CDATA[<p><a href="https://codeforces.com/contest/1883">CF905.Div3</a></p><hr><h1 id="A"><a href="#A" class="headerlink" title="A"></a>A</h1><p>模拟。</p><p>直接按顺序来按即可，答案即为每个数字的位置之差加 $4$ 。</p><hr><h1 id="B"><a href="#B" class="headerlink" title="B"></a>B</h1><p>回文串，所以有两种情况，一种是所有字母的个数都是偶数，另一种是一种字母个数是奇数，其余字母个数都是偶数。</p><p>所以只需要统计字母输出出现的次数，若出现奇数次数的字母有 $x$ 种，当 $k&gt;x$ 时直接一定能构成回文串，否则当 $k=x$ 或 $x-k=1$ 时一定能构成回文串，否则就不能构成回文串。</p><hr><h1 id="C"><a href="#C" class="headerlink" title="C"></a>C</h1><p>发现 $k$ 相当小，只有 $2,3,4,5$ 。</p><p>当为 $2,3,5$ 时，由于是质数，所以只需遍历每个数取最小的加到 $k$ 的倍数的步数即可。</p><p>为 $4$ 时，有两种情况，一种是 $2\times 2$ ，另一种是 $4$ ，统计数中偶数的个数以及 $4$ 的倍数的个数来判断即可。</p><hr><h1 id="D"><a href="#D" class="headerlink" title="D"></a>D</h1><p>写了两个权值线段树。</p><p>一个维护左端点，另一个维护右端点。</p><p>然后对于每次询问，查找右端点线段树中最左边的位置 $pos$ ，然后查找一下左端点线段树在 $pos\sim m$ 内有没有值即可。</p><p>时间复杂度 $O(q\log q)$ ，需要离散化。</p><hr><h1 id="E"><a href="#E" class="headerlink" title="E"></a>E</h1><p>常规做法是从 $a_2$ 开始，一直乘 $2$ 直到大于等于其前一个数，往后的每个数都这么做。</p><p>这么做显然会超时。</p><p>考虑再维护一个 $b$ 数组，$b_i$ 表示 $a_i$ 乘了 $2^{b_i}$ 。</p><p>如果 $a_i &lt; a_{i-1}$ ，那么 $b_i=b_{i-1}+\lfloor\log_2\lceil \frac{a_{i-1}}{a_i}\rceil\rfloor$ 。</p><p>反之则 $b_i=\max(b_{i-1}-\lceil\log_2\lceil \frac{a_{i-1}}{a_i}\rceil\rceil+1,0)$  。</p><p>可以用二分优化。由于二分范围很小，可以看成常数。时间复杂度 $O(n)$ 。</p><p>最后求出 $b$ 数组所有元素之和即可。</p><hr><h1 id="G1"><a href="#G1" class="headerlink" title="G1"></a>G1</h1><p>由于 $m=1$ ，所以可以考虑直接模拟。</p><p>维护两个双端队列 $A$ 与 $B$ ，将 $a$ 与 $b$ 排好序后分别插入其内。</p><p>若 $A$ 的队尾大于 $B$ 的队尾，则 $A$ 的队尾必须要删除，此时也需要另外在 $B$ 中删除一个数，那么肯定删除的数越小越好，所以选择删除 $B$ 的队头。</p><p>若 $B$ 的队头小于等于 $A$ 的队头，那么 $B$ 的队头必须要删除，同样的想法，再把 $A$ 的队尾删除。</p><p>这样就预处理出来了两个初始的队列。</p><p>然后不断将两个队列的队尾比较，如果可以满足题目条件 $a_i&lt;b_i$ ，就直接出队，反之则将答案加一，并删除 $A$ 的队头，$B$ 的队尾。</p><p>时间复杂度 $O(n)$ 。</p>]]></content>
       
       
       <categories>
@@ -1561,9 +1561,9 @@
             
             <tag> 题解 </tag>
             
-            <tag> SPFA </tag>
-            
             <tag> 二分答案 </tag>
+            
+            <tag> SPFA </tag>
             
         </tags>
       

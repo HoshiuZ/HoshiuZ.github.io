@@ -393,14 +393,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    325
+                    681
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -439,6 +439,22 @@
 <p>一个维护左端点，另一个维护右端点。</p>
 <p>然后对于每次询问，查找右端点线段树中最左边的位置 $pos$ ，然后查找一下左端点线段树在 $pos\sim m$ 内有没有值即可。</p>
 <p>时间复杂度 $O(q\log q)$ ，需要离散化。</p>
+<hr>
+<h1 id="E"><a href="#E" class="headerlink" title="E"></a>E</h1><p>常规做法是从 $a_2$ 开始，一直乘 $2$ 直到大于等于其前一个数，往后的每个数都这么做。</p>
+<p>这么做显然会超时。</p>
+<p>考虑再维护一个 $b$ 数组，$b_i$ 表示 $a_i$ 乘了 $2^{b_i}$ 。</p>
+<p>如果 $a_i &lt; a_{i-1}$ ，那么 $b_i=b_{i-1}+\lfloor\log_2\lceil \frac{a_{i-1}}{a_i}\rceil\rfloor$ 。</p>
+<p>反之则 $b_i=\max(b_{i-1}-\lceil\log_2\lceil \frac{a_{i-1}}{a_i}\rceil\rceil+1,0)$  。</p>
+<p>可以用二分优化。由于二分范围很小，可以看成常数。时间复杂度 $O(n)$ 。</p>
+<p>最后求出 $b$ 数组所有元素之和即可。</p>
+<hr>
+<h1 id="G1"><a href="#G1" class="headerlink" title="G1"></a>G1</h1><p>由于 $m=1$ ，所以可以考虑直接模拟。</p>
+<p>维护两个双端队列 $A$ 与 $B$ ，将 $a$ 与 $b$ 排好序后分别插入其内。</p>
+<p>若 $A$ 的队尾大于 $B$ 的队尾，则 $A$ 的队尾必须要删除，此时也需要另外在 $B$ 中删除一个数，那么肯定删除的数越小越好，所以选择删除 $B$ 的队头。</p>
+<p>若 $B$ 的队头小于等于 $A$ 的队头，那么 $B$ 的队头必须要删除，同样的想法，再把 $A$ 的队尾删除。</p>
+<p>这样就预处理出来了两个初始的队列。</p>
+<p>然后不断将两个队列的队尾比较，如果可以满足题目条件 $a_i&lt;b_i$ ，就直接出队，反之则将答案加一，并删除 $A$ 的队头，$B$ 的队尾。</p>
+<p>时间复杂度 $O(n)$ 。</p>
 
                 
             </div>
@@ -848,7 +864,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">63.6k</span>&nbsp;字
+                class="white-color">64k</span>&nbsp;字
             
             
             
