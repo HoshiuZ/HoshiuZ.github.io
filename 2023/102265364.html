@@ -468,8 +468,8 @@
 <p>由于只改变 $a_1$ ，对于 $a_1$ 只有删或不删两种情况，所以不管其值怎么变，答案也只有两种，并且一定是 $x,x,x,x,\dots ,x+1,x+1,\dots$ 的形式，这个分段点也可以用二分来求得。</p>
 <p>时间复杂度 $O(n\log n\log m)$ 。</p>
 <hr>
-<h1 id="Div2"><a href="#Div2" class="headerlink" title="Div2"></a>Div2</h1><h2 id="E-1"><a href="#E-1" class="headerlink" title="E"></a>E</h2><hr>
-<h2 id="F"><a href="#F" class="headerlink" title="F"></a>F</h2><p>想到可以另开一个数组 $b$ 用来存与之前相比的增量。</p>
+<h1 id="Div2"><a href="#Div2" class="headerlink" title="Div2"></a>Div2</h1><h2 id="补E"><a href="#补E" class="headerlink" title="补E"></a>补E</h2><hr>
+<h2 id="补F"><a href="#补F" class="headerlink" title="补F"></a>补F</h2><p>想到可以另开一个数组 $b$ 用来存与之前相比的增量。</p>
 <p>当第一个不为零的 $b_i&lt;0$ 时，说明当前的修改可以使字典序更优，那么就记录当前修改的操作序号并清空 $b$ 数组。</p>
 <p>由于需要区间加，所以可以考虑用线段树来维护 $b$ 数组。</p>
 <p>判断第一个不为 $0$ 可以用线段树维护区间最大值和最小值，然后二分来找这个位置。</p>
