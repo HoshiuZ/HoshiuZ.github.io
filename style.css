@@ -1,0 +1,138 @@
+:root {
+  --primary-color: #6fa8dc;
+  --secondary-color: #4ECDC4;
+  --background-color: #f8f9fa;
+  --text-dark: #2c3e50;
+  --text-light: #666;
+  --aqi-bg: #ffffff;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background: var(--background-color);
+  min-height: 100vh;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+h1 {
+  color: var(--primary-color);
+  margin: 0;
+  font-size: 1.8em;
+}
+
+#city {
+  font-size: 1.4em;
+  color: var(--text-dark);
+  margin-top: 0.5em;
+}
+
+.info-box {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+.info-item {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 新增空气质量模块样式 */
+.aqi-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  background: var(--aqi-bg);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.aqi-main {
+  text-align: center;
+}
+
+.aqi-value {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+.pollutants-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.pollutant-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .info-box {
+    grid-template-columns: 1fr;
+  }
+  
+  .pollutants-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+  
+  .aqi-value {
+    font-size: 2em;
+  }
+}
+
+/* 新增头部信息样式 */
+.header-info {
+  margin-top: 0.5rem;
+}
+
+#update-time {
+  font-size: 0.9em;
+  color: #666;
+  margin: 0.3rem 0;
+}
+
+/* 调整网格布局为4行2列 */
+.info-box {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  grid-auto-rows: minmax(60px, auto);
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .info-box {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>雾霾探测系统</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>🌫️ 雾霾探测系统</h1>
+    <div class="header-info">
+      <p id="city"></p>
+      <p id="update-time">数据更新时间：--</p>
+    </div>
+  </header>
+  
+  <main>
+    <div class="info-box">
+      <div class="info-item">
+        <label>🌡️ 温度：</label>
+        <span id="temp">--°C</span>
+      </div>
+      <div class="info-item">
+        <label>🌤️ 天气：</label>
+        <span id="condition">--</span>
+      </div>
+      <div class="info-item">
+        <label>👤 体感：</label>
+        <span id="feelsLike">--°C</span>
+      </div>
+      <div class="info-item">
+        <label>💨 风力：</label>
+        <span id="windScale">--级</span>
+      </div>
+      <div class="info-item">
+        <label>💧 湿度：</label>
+        <span id="humidity">--%</span>
+      </div>
+      <div class="info-item">
+        <label>🌬️ 风速：</label>
+        <span id="windSpeed">--km/h</span>
+      </div>
+      <div class="info-item">
+        <label>🧭 风向：</label>
+        <span id="windDir">--</span>
+      </div>
+      <div class="info-item">
+        <label>⏲️ 气压：</label>
+        <span id="pressure">--hPa</span>
+      </div>
+    </div>
+
+    <!-- 新增空气质量指数模块 -->
+    <div class="aqi-container">
+      <div class="aqi-main">
+        <div class="aqi-value">AQI <span id="aqi">--</span></div>
+        <div class="pollutants-grid">
+          <div class="pollutant-item">
+            <label>PM2.5：</label>
+            <span id="pm25">--μg/m³</span>
+          </div>
+          <div class="pollutant-item">
+            <label>PM10：</label>
+            <span id="pm10">--μg/m³</span>
+          </div>
+          <div class="pollutant-item">
+            <label>二氧化氮：</label>
+            <span id="no2">--μg/m³</span>
+          </div>
+          <div class="pollutant-item">
+            <label>二氧化硫：</label>
+            <span id="so2">--μg/m³</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
