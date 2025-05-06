@@ -11,14 +11,12 @@ const CITY_FILE = path.join(DATA_DIR, 'city.json');
 // 中间件配置
 app.use(cors());
 app.use(express.json());
-app.use(express.static(__dirname)); // 托管根目录为静态资源目录
+app.use(express.static(__dirname));
 
-// 确保数据目录存在
 if (!fs.existsSync(DATA_DIR)) {
   fs.mkdirSync(DATA_DIR, { recursive: true });
 }
 
-// 接口保持不变
 app.get('/getCity', (req, res) => {
   try {
     const data = fs.existsSync(CITY_FILE) 

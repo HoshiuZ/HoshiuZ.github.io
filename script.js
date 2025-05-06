@@ -6,7 +6,6 @@ document.getElementById('city').textContent = currentCity;
 
 async function init() {
   try {
-    // 调试：尝试获取保存的城市
     console.groupCollapsed('[调试] 获取保存的城市信息');
     const savedCity = await axios.get('/getCity').catch(error => {
       console.error('获取保存城市失败:', error.message);
@@ -24,7 +23,6 @@ async function init() {
     console.log('无保存的城市信息');
     console.groupEnd();
 
-    // 获取新定位
     console.groupCollapsed('[调试] 定位流程');
     const position = await new Promise((resolve, reject) => {
       navigator.geolocation.getCurrentPosition(
@@ -82,10 +80,10 @@ async function init() {
       .catch(error => console.error('保存失败:', error.message));
 
     loadWeather(cityId);
-    console.groupEnd(); // 结束定位流程组
+    console.groupEnd();
 
   } catch (error) {
-    console.groupEnd(); // 确保异常时关闭日志组
+    console.groupEnd();
     console.error('[最终错误处理] 定位流程失败:', error.message);
     console.log('回退到默认城市: 西安');
     document.getElementById('city').textContent = '西安';
@@ -134,7 +132,6 @@ function loadWeather(cityId) {
     });
     document.getElementById('update-time').textContent = `数据更新时间：${updateTime}`;
 
-    // ✅ 使用正确的 hourly 数据更新图表
     console.log("每小时天气数据：", hourlyRes.data.hourly);
     updateWeatherChart(hourlyRes.data.hourly);
     console.log('界面更新完成');
