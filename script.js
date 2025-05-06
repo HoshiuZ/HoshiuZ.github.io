@@ -182,9 +182,9 @@ function updateWeatherChart(hourlyData) {
   console.log('Chart.js 已加载');
 
   // 获取数据
-  const labels = hourlyData.map(item => item.fxTime.substring(11, 16)); // 获取时间（如 14:00）
-  const tempValues = hourlyData.map(item => parseFloat(item.temp)).filter(val => !isNaN(val)); // 过滤 NaN
-  const humidityValues = hourlyData.map(item => parseFloat(item.humidity)).filter(val => !isNaN(val)); // 过滤 NaN
+  const labels = hourlyData.map(item => item.fxTime.substring(11, 16));
+  const tempValues = hourlyData.map(item => parseFloat(item.temp)).filter(val => !isNaN(val)); 
+  const humidityValues = hourlyData.map(item => parseFloat(item.humidity)).filter(val => !isNaN(val)); 
 
   if (tempValues.length === 0 || humidityValues.length === 0) {
     console.error('温度或湿度数据无效，无法渲染图表');
