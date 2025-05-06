@@ -127,20 +127,20 @@ h1 {
 }
 
 .chart-container {
-  display: flex;                 /* 使用 flex 布局 */
-  justify-content: center;       /* 水平居中 */
-  align-items: center;           /* 垂直居中 */
-  max-width: 600px;               /* 容器宽度 */
-  height: 500px;                 /* 固定容器高度 */
-  margin: 2rem auto;             /* 保证容器居中 */
+  display: flex;             
+  justify-content: center; 
+  align-items: center;           
+  max-width: 600px;              
+  height: 500px;                
+  margin: 2rem auto;           
   padding: 1rem;
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 #weatherChart {
-  width: 90%;                    /* canvas 宽度 90% */
-  height: 90%;                   /* canvas 高度 90% */
+  width: 90%;                 
+  height: 90%;                
 }
 
 /* 移动端适配 */
